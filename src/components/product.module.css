@@ -7,6 +7,12 @@
   /* box-shadow: 0 5px 5px #ccc; */
 }
 
+.title {
+  display: flex;
+  justify-content: space-between;
+  /* color: maroon; */
+}
+
 .price {
   font-size: 1.25em;
 }
