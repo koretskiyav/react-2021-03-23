@@ -1,0 +1,18 @@
+.review {
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.review__user {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.review__text {
+    margin-bottom: 12px;
+}
