@@ -1,18 +1,3 @@
-.card {
-  margin: 12px;
-  padding: 12px;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  /* box-shadow: 0 5px 5px #ccc; */
-}
-
-.title {
-  display: flex;
-  justify-content: space-between;
-  /* color: maroon; */
-}
-
 .price {
   font-size: 1.25em;
 }

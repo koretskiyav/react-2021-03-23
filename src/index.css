@@ -21,3 +21,12 @@ button {
   display: flex;
   justify-content: space-between;
 }
+
+.card {
+  margin-bottom: 12px;
+  padding: 12px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  /* box-shadow: 0 5px 5px #ccc; */
+}
