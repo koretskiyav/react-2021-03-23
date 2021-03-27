@@ -1,7 +1,9 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Darcula Theme from IntelliJ",
   "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "git.autofetch": true,
   "git.confirmSync": false,
   "editor.tabSize": 2,
