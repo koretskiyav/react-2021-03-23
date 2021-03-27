@@ -9,9 +9,9 @@ export default function Rate (props) {
   const emptyStars = new Array(5 - displayedRate);
 
   const renderedFilledStars = filledStars
-    .map(() => <FilledStar />);
+    .map((star, id) => <FilledStar key={`filled-star_${id}`} />);
   const renderedEmptyStars = emptyStars
-    .map(() => <Star />);
+    .map((star, id) => <Star key={`empty-star_${id}`} />);
 
   return (
     <div className="Rate">
