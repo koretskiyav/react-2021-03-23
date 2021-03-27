@@ -1,0 +1,9 @@
+.restaurant__heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.restaurant__heading > div:last-child {
+    margin-left: 16px;
+}
