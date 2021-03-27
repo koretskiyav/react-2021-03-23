@@ -4,8 +4,9 @@
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 12px;
+  /* box-shadow: 0 5px 5px #ccc; */
 }
 
-.icon path {
-  fill: red;
+.price {
+  font-size: 1.25em;
 }

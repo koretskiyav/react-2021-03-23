@@ -1,0 +1,14 @@
+.counter {
+  width: 4em;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25em;
+}
+
+.btn {
+  border: none;
+}
+
+.icon path {
+  fill: maroon;
+}
