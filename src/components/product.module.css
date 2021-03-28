@@ -9,3 +9,21 @@
 .icon path {
   fill: red;
 }
+
+.rate {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.menu,
+.reviewers {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #000;
+}
+
+.item {
+  margin-bottom: 5px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background-color: #eee;
+}
