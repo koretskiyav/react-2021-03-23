@@ -9,10 +9,15 @@ export default function Restaurant(props) {
   const averageRate = useAverageRate(props.restaurant.reviews);
 
   return (
-    <div>
+    <div className={style.container}>
       <Menu menu={props.restaurant.menu} />
-      <Reviews reviews={props.restaurant.reviews} />
-      <Rate rate={averageRate.averageRate} />
+      <div>
+        <div className={style.column}>
+          <h3>Average rate:</h3>
+          <Rate rate={averageRate.averageRate} backgroundColor="#fff" />
+        </div>
+        <Reviews reviews={props.restaurant.reviews} />
+      </div>
     </div>
   )
 }
