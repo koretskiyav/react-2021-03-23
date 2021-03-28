@@ -25,3 +25,4 @@ function Product(props) {
 }
 
 export default counter(Product);
+
