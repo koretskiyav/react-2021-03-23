@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  -ms-flex-align: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.container > div {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.column {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
