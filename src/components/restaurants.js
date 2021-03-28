@@ -13,8 +13,10 @@ export default function Restaurants(props) {
   return (
     <div>
       <Navigation
-        restaurants={props.restaurants}
-        onRestaurantClick={setActiveId}
+        data={props.restaurants}
+        onClick={setActiveId}
+        titlePropName="name"
+        activeId={activeId}
       />
       <Restaurant restaurant={activeRestaurant} />
     </div>
