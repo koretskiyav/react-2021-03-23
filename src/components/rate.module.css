@@ -1,0 +1,8 @@
+.rate svg {
+    stroke: #000;
+    fill: #bb9;
+}
+.rate svg.selected {
+    stroke: #fb3;
+    fill: #fb3;
+}
