@@ -16,8 +16,7 @@ export default function Restaurants(props) {
         restaurants={props.restaurants}
         onRestaurantClick={setActiveId}
       />
-      {/* <Menu menu={activeRestaurant.menu} /> */}
-      <Restaurant restaurant={activeRestaurant} />
+      <Restaurant restaurant={activeRestaurant} key={activeRestaurant.id} />
     </div>
   );
 }

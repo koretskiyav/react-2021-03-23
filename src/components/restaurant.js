@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Reviews from './reviews';
 import Menu from './menu';
 import Rate from './rate';
