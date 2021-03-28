@@ -1,9 +1,16 @@
 .card {
-  margin: 12px;
+  margin-bottom: 10px;
+  margin-right: 10px;
   padding: 12px;
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 12px;
+  width: 300px;
+}
+
+.btn {
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .icon path {
