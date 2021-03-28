@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import Navigation from './navigation';
+import React, { useCallback } from 'react';
+import Tabs from './tabs';
 import Rate from './rate';
 import Menu from './menu';
 import Reviews from './reviews';
@@ -13,9 +13,14 @@ const navLinks = [
 ]
 
 function Restaurant(props) {
-  const { menu, reviews } = props.restaurant
-  const { rate } = useCommonRate(reviews.map(review => review.rating))
-  const [activeId, setActiveId] = useState(navLinks[0].id);
+  const { rate } = useCommonRate(props.restaurant.reviews.map(review => review.rating))
+
+  const getActiveComponent = useCallback(
+    (activeId) => activeId === 'menu' 
+      ? <Menu menu={props.restaurant.menu} /> 
+      : <Reviews reviews={props.restaurant.reviews} />,
+    [props.restaurant]
+  );
   
   return (
     <div className={style.restaurant}>
@@ -23,15 +28,13 @@ function Restaurant(props) {
         {props.restaurant.name}
         <Rate value={rate}/>
       </h1>
-      <Navigation
-        data={navLinks}
-        onClick={setActiveId}
-        titlePropName="name"
-        activeId={activeId}
-      />
-      <div className={style.main}>
-        { activeId === 'menu' ? <Menu menu={menu} /> : <Reviews reviews={reviews} /> }
-      </div>
+      <Tabs data={navLinks} titlePropName="name">
+        {(activeId) => (
+          <div className={style.main}>
+            { getActiveComponent(activeId) }
+          </div>
+        )}
+      </Tabs>
     </div>
   );
 }
