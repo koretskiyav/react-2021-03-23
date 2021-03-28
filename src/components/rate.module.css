@@ -1,0 +1,8 @@
+.filled {
+    fill: #ffd055;
+}
+
+.empty {
+    fill: #fff;
+    stroke: #ffd055;
+}
