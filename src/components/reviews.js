@@ -1,19 +1,17 @@
-import classes from './reviews.module.css'
 import Rate from "./rate";
 
 const Reviews = props =>
     (
-        <div className={classes.Reviews}>
+        <div>
             {props.reviews.map((review) => (
                 <div
                     key={review.id}
-                    className={classes.item}
                 >
-                    <div className={classes.head}>
+                    <div>
                         <h3>{review.user}</h3>
                         <Rate value={review.rating}/>
                     </div>
-                    <p className={classes.body}>
+                    <p>
                         {review.text}
                     </p>
                 </div>
