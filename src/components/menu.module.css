@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  padding-top: 12px;
+}
+
+.item {
+  flex: 33% 1 0;
+}
+
+.item:not(:nth-child(3n)) {
+  margin-right: 12px;
+}
