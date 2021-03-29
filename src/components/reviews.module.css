@@ -1,0 +1,17 @@
+.reviewsContainer {
+  margin: 12px;
+  padding: 12px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+
+.review {
+  margin: 50px 0;
+  line-height: 2px;
+}
+
+.reviewText {
+  background-color: #fff;
+  padding: 20px 10px;
+}
