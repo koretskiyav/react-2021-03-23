@@ -3,6 +3,7 @@ import useAmount from '../hooks/use-amount';
 
 export default (WrappedComponent) => (props) => {
   const amountProps = useAmount(0);
+  const {} = props; // eslint-disable-line no-empty-pattern
   return <WrappedComponent {...props} {...amountProps} />;
 };
 

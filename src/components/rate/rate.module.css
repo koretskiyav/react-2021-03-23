@@ -1,0 +1,20 @@
+.rate {
+  background-color: #fcf;
+}
+
+.rate__sign {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.rate__star {
+  color: black;
+  width: 12px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.rate__star_active {
+  color: red;
+}

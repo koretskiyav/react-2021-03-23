@@ -1,0 +1,11 @@
+.restaurant {
+}
+
+.restaurant__title {
+}
+
+.restaurant__avgrate {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 0.8em;
+}
