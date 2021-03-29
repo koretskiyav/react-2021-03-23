@@ -11,15 +11,17 @@ function Product(props) {
 
   return (
     <div className={style.card}>
-      <p>{props.product.name}</p>
-      <p>{props.product.price} $</p>
-      <button onClick={decrement}>
-        <Minus className={style.icon} />
-      </button>
-      {amount}
-      <button onClick={increment}>
-        <Plus className={style.icon} />
-      </button>
+      <div className={style.name}>{props.product.name}</div>
+      <div className={style.cnt}>
+        <div className={style.price}>{props.product.price} $</div>
+        <button onClick={decrement} className={style.button}>
+          <Minus className={style.icon} />
+        </button>
+        {amount}
+        <button onClick={increment} className={style.button}>
+          <Plus className={style.icon} />
+        </button>
+      </div>
     </div>
   );
 }

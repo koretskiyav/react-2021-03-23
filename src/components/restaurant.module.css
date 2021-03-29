@@ -1,0 +1,12 @@
+.block {
+  padding-top: 12px;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+}
+
+.icon path {
+  fill: #fec106;
+}
