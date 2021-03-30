@@ -12,7 +12,7 @@ function Product(props) {
   return (
     <div className={style.card}>
       <p>{props.product.name}</p>
-      <p>{props.product.price} $</p>
+      <p>${props.product.price}</p>
       <button onClick={decrement}>
         <Minus className={style.icon} />
       </button>
