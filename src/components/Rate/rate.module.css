@@ -1,0 +1,16 @@
+.iconStar{
+  stroke: black;
+  width:15px;
+  height: auto;
+}
+.iconStar path{
+  fill:none
+}
+.iconStarFilled{
+  stroke: black;
+  width:15px;
+  height: auto;
+}
+.iconStarFilled path{
+  fill:#ffdb1d;
+}
