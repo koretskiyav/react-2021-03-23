@@ -8,7 +8,7 @@ export default function Rate(props) {
 
   return (
     <div className={style.progress}>
-      <div className={style.anti_progress} style={{ height: antiProgress + "px", backgroundColor: props.backgroundColor }}></div>
+      <div className={style.anti_progress} style={{ height: antiProgress + "px" }}></div>
       <div className={style.text}>{props.rate}</div>
     </div>
   )

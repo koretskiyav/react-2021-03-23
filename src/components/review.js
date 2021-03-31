@@ -9,7 +9,7 @@ export default function Review(props) {
         <h3>{props.review.user}</h3>
         <div>{props.review.text}</div>
       </div>
-      <Rate rate={props.review.rating} backgroundColor="rgb(245, 245, 230)" />
+      <Rate rate={props.review.rating} />
     </div>
   )
 }
