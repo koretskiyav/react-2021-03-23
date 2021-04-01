@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Review = ({ user, text, rating }) => {
   return (
-    <div className={style.container}>
+    <div className={style.container} data-id="review">
       <div>
         <h3>{user}</h3>
         <div>{text}</div>
@@ -15,12 +15,10 @@ const Review = ({ user, text, rating }) => {
   )
 }
 
-Review.prototypes = {
-  review: PropTypes.shape({
-    user: PropTypes.string,
-    text: PropTypes.string,
-    rating: PropTypes.number
-  }).isRequired
+Review.propTypes = {
+  user: PropTypes.string,
+  text: PropTypes.string,
+  rating: PropTypes.number
 }
 
 Review.defaultProps = {

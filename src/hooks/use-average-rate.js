@@ -3,5 +3,5 @@ export default function useAverageRate(reviews) {
     return total + review.rating;
   }, 0);
 
-  return (totalRate / reviews.length).toFixed(1);
+  return parseFloat((totalRate / reviews.length).toFixed(1));
 }

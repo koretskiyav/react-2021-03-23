@@ -15,7 +15,7 @@ const Navigation = ({ restaurants, onRestaurantClick }) => {
   );
 };
 
-Navigation.prototypes = {
+Navigation.propTypes = {
   restaurants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string

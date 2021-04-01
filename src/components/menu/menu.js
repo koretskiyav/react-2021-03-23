@@ -12,7 +12,7 @@ const Menu = ({ menu }) => {
   );
 };
 
-Menu.prototypes = {
+Menu.propTypes = {
   menu: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string
   }).isRequired).isRequired

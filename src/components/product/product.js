@@ -22,7 +22,7 @@ const Product = ({ product, decrement, increment, amount }) =>  (
   </div>
 );
 
-Product.prototypes = {
+Product.propTypes = {
   product: PropTypes.shape({
     name: PropTypes.string,
     price: PropTypes.number,

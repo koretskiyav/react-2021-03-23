@@ -8,18 +8,15 @@ const Restaurant = ({ restaurant }) => {
     <div className={style.container}>
       <Menu menu={restaurant.menu} />
       <div>
-        <div>
-          <h3>Average rate:</h3>
-        </div>
         <Reviews reviews={restaurant.reviews} />
       </div>
     </div>
   )
 }
 
-Restaurant.prototypes = {
+Restaurant.propTypes = {
   restaurant: PropTypes.shape({
-    menu: PropTypes.object,
+    menu: PropTypes.array,
     reviews: PropTypes.array
   }).isRequired
 }

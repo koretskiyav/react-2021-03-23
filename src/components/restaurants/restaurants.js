@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 const Restaurants = ({ restaurants }) => {
   const [activeId, setActiveId] = useState(restaurants[0].id);
+  console.log(restaurants[0].reviews[0]);
 
   const activeRestaurant = useMemo(
     () => restaurants.find((restaurant) => restaurant.id === activeId),
@@ -23,7 +24,7 @@ const Restaurants = ({ restaurants }) => {
   );
 }
 
-Restaurants.prototypes = {
+Restaurants.propTypes = {
   restaurants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
   })).isRequired

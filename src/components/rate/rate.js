@@ -15,7 +15,7 @@ const Rate = ({ rate }) => {
   )
 }
 
-Rate.prototypes = {
+Rate.propTypes = {
   rate: PropTypes.number
 }
 

@@ -1,14 +1,22 @@
 import React from 'react';
-import Review from '../review'
+import Review from '../review';
+import PropTypes from 'prop-types';
 
-const Reviews = (props) => {
+const Reviews = ({ reviews }) => {
   return (
-    <div>
-      {props.reviews.map((review) => (
+    <div data-id="reviews">
+      {reviews.map((review) => (
         <Review key={review.id} {...review} />
       ))}
     </div>
   )
 }
 
+Reviews.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string
+  })).isRequired
+};
+
 export default Reviews;
+
