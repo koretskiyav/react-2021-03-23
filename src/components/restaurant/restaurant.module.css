@@ -1,11 +1,12 @@
 .container {
   display: flex;
-  -ms-flex-align: start;
+  flex-direction: column;
+  /* -ms-flex-align: start;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 }
 
-.container > div {
+/* .container > div {
   flex-grow: 1;
   flex-shrink: 0;
 }
@@ -15,4 +16,4 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
+} */

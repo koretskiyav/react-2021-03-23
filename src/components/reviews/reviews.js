@@ -1,7 +1,7 @@
 import React from 'react';
-import Review from './review'
+import Review from '../review'
 
-export default function Reviews(props) {
+const Reviews = (props) => {
   return (
     <div>
       {props.reviews.map((review) => (
@@ -10,3 +10,5 @@ export default function Reviews(props) {
     </div>
   )
 }
+
+export default Reviews;
