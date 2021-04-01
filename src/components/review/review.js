@@ -3,14 +3,14 @@ import Rate from '../rate';
 import style from './review.module.css';
 import PropTypes from 'prop-types';
 
-const Review = ({ review }) => {
+const Review = ({ user, text, rating }) => {
   return (
     <div className={style.container}>
       <div>
-        <h3>{review.user}</h3>
-        <div>{review.text}</div>
+        <h3>{user}</h3>
+        <div>{text}</div>
       </div>
-      <Rate rate={review.rating} />
+      <Rate rate={rating} />
     </div>
   )
 }
@@ -21,6 +21,10 @@ Review.prototypes = {
     text: PropTypes.string,
     rating: PropTypes.number
   }).isRequired
+}
+
+Review.defaultProps = {
+  user: 'Anonymous'
 }
 
 export default Review;
