@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { ReactComponent as Star } from '../../icons/star.svg';
@@ -6,7 +7,7 @@ import { ReactComponent as Star } from '../../icons/star.svg';
 import styles from './rate.module.css';
 
 const Rate = ({ value }) => (
-  <div>
+  <div data-id="rating">
     {[...Array(5)].map((_, i) => (
       <Star
         key={i}
@@ -15,5 +16,9 @@ const Rate = ({ value }) => (
     ))}
   </div>
 );
+
+Rate.propTypes = {
+  value: PropTypes.number,
+};
 
 export default Rate;
