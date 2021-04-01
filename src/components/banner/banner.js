@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './banner.module.css';
 
 import banner from './banner.jpg';
+import PropTypes from 'prop-types';
 
 const Banner = ({ heading, description, children }) => (
   <div className={styles.banner}>
@@ -15,4 +16,8 @@ const Banner = ({ heading, description, children }) => (
   </div>
 );
 
+Banner.propTypes = {
+  heading: PropTypes.string,
+  children: PropTypes.element,
+};
 export default Banner;
