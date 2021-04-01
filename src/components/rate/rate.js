@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { ReactComponent as Star } from '../../icons/star.svg';
-
+import PropTypes from 'prop-types';
 import styles from './rate.module.css';
 
 const Rate = ({ value }) => (
@@ -15,5 +15,9 @@ const Rate = ({ value }) => (
     ))}
   </div>
 );
+Rate.propTypes = {
+  value: PropTypes.number.isRequired
+}
+
 
 export default Rate;
