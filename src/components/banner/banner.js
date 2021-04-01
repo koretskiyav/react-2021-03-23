@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './banner.module.css';
 
@@ -14,5 +15,10 @@ const Banner = ({ heading, description, children }) => (
     </div>
   </div>
 );
+
+Banner.propTypes = {
+  heading: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+};
 
 export default Banner;
