@@ -8,15 +8,15 @@ import { ReactComponent as Minus } from '../../icons/minus.svg';
 import { ReactComponent as Plus } from '../../icons/plus.svg';
 
 const Product = ({ product, decrement, increment, amount }) =>  (
-  <div className={style.card}>
+  <div className={style.card} data-id="product">
     <p>{product.name}</p>
-    <p className={style.description}>{product.ingredients.join(', ')}</p>
+    <p className={style.description}>{product.ingredients?.join(', ')}</p>
     <p>{product.price} $</p>
-    <button onClick={decrement}>
+    <button onClick={decrement} data-id="product-decrement">
       <Minus className={style.icon} />
     </button>
-    {amount}
-    <button onClick={increment}>
+    <div data-id="product-amount">{amount}</div>
+    <button onClick={increment} data-id="product-increment">
       <Plus className={style.icon} />
     </button>
   </div>
