@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a985361-8d19-47c0-96bc-c1b6464c1489" name="Default Changelist" comment="Merge remote-tracking branch 'upstream/master'&#10;&#10;# Conflicts:&#10;#&#9;yarn.lock">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="2a985361-8d19-47c0-96bc-c1b6464c1489" name="Default Changelist" comment="prettier for webstorm">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/rate/rate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rate/rate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/restaurant/restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/restaurant/restaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/restaurants/restaurants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/restaurants/restaurants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/reviews/review/review.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/reviews/review/review.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/reviews/reviews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/reviews/reviews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -43,7 +50,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\vkirs\WebstormProjects\react-2021-03-23\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -56,7 +63,9 @@
       <updated>1616825846552</updated>
       <workItem from="1616825852401" duration="683000" />
       <workItem from="1616826537074" duration="2135000" />
-      <workItem from="1616830660459" duration="298000" />
+      <workItem from="1616830660459" duration="1573000" />
+      <workItem from="1617119820905" duration="73000" />
+      <workItem from="1617298585683" duration="4176000" />
     </task>
     <task id="LOCAL-00001" summary="Merge remote-tracking branch 'upstream/master'&#10;&#10;# Conflicts:&#10;#&#9;yarn.lock">
       <created>1616826673120</created>
@@ -72,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616827887350</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="prettier for webstorm">
+      <created>1616831071863</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616831071863</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,7 +109,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Merge remote-tracking branch 'upstream/master'&#10;&#10;# Conflicts:&#10;#&#9;yarn.lock" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'upstream/master'&#10;&#10;# Conflicts:&#10;#&#9;yarn.lock" />
+    <MESSAGE value="prettier for webstorm" />
+    <option name="LAST_COMMIT_MESSAGE" value="prettier for webstorm" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
