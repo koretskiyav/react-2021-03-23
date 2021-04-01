@@ -30,4 +30,27 @@ describe('Product', () => {
     mount(<Product product={product} fetchData={fn} />);
     expect(fn).toBeCalledWith(product.id);
   });
+
+  it('should not decrement if 0', () => {
+    const wrapper = mount(<Product product={product} />);
+    const decrement = wrapper.find('[data-id="product-decrement"]');
+    const value = wrapper.find('[data-id="product-amount"]');
+
+    decrement.simulate('click');
+
+    expect(value.text()).toBe('0');
+  });
+
+  it('should decrement if not 0', () => {
+    const wrapper = mount(<Product product={product} />);
+    const increment = wrapper.find('[data-id="product-increment"]');
+    const decrement = wrapper.find('[data-id="product-decrement"]');
+    const value = wrapper.find('[data-id="product-amount"]');
+
+    // wrapper.setState({ amount: 3 });
+    increment.simulate('click');
+    increment.simulate('click');
+    decrement.simulate('click');
+    expect(value.text()).toBe('1');
+  });
 });
