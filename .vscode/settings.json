@@ -1,5 +1,29 @@
 {
-  "editor.tabSize": 2,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Darcula Theme from IntelliJ",
+  "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "editor.tabSize": 2,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "importCost.bundleSizeDecoration": "gzipped",
+  "window.title": "${activeFolderMedium}${separator}${activeEditorShort}",
+  "window.titleSeparator": " / ",
+  "window.titleBarStyle": "native",
+  "oneDarkPro.markdownStyle": false,
+  "markdown.styles": [
+    "https://cdn.jsdelivr.net/gh/dhdhagar/vscode-md-preview-light/style.min.css"
+  ],
+  "files.associations": {
+    "*.svg": "html"
+  },
+  "cSpell.enableFiletypes": ["svg", "xml"],
+  "window.zoomLevel": 1
 }
