@@ -9,6 +9,9 @@ class Menu extends React.Component {
     menu: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
+        product: PropTypes.shape({
+          id: PropTypes.string.isRequired,
+        }),
       }).isRequired
     ).isRequired,
   };
