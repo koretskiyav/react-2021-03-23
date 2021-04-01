@@ -7,8 +7,8 @@ const Review = ({ user, text, rating }) => {
   return (
     <div className={style.container} data-id="review">
       <div>
-        <h3>{user}</h3>
-        <div>{text}</div>
+        <h3 data-id="review-name">{user}</h3>
+        <div data-id="review-text">{text}</div>
       </div>
       <Rate rate={rating} />
     </div>
