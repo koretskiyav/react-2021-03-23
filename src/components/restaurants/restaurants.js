@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Restaurant from '../restaurant';
 import Navigation from '../navigation';
+import { PropTypes } from 'prop-types';
 
 const Restaurants = ({ restaurants }) => {
   const [activeRestaurantId, setActiveRestaurant] = useState(restaurants[0].id);
@@ -19,6 +20,31 @@ const Restaurants = ({ restaurants }) => {
       <Restaurant restaurant={activeRestaurant} />
     </div>
   );
+};
+
+Restaurants.propTypes = {
+  restaurants: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      menu: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          ingredients: PropTypes.arrayOf(PropTypes.string),
+          name: PropTypes.string.isRequired,
+          price: PropTypes.number.isRequired,
+        })
+      ).isRequired,
+      name: PropTypes.string.isRequired,
+      reviews: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          rating: PropTypes.number.isRequired,
+          text: PropTypes.string.isRequired,
+          user: PropTypes.string.isRequired,
+        })
+      ),
+    })
+  ),
 };
 
 export default Restaurants;
