@@ -1,5 +1,5 @@
 import React from 'react';
-import Rate from './rate';
+import Rate from '../rate';
 
 function Review(props) {
   return (

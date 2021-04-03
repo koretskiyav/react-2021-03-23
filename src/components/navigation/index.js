@@ -1,5 +1,4 @@
 import React from 'react';
-
 import style from './navigation.module.css';
 
 export default function Navigation(props) {

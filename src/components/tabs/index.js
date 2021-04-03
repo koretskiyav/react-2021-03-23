@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navigation from './navigation';
+import Navigation from '../navigation';
 
 export default function Tabs(props) {
     const [activeId, setActiveId] = useState(props.data[0].id);

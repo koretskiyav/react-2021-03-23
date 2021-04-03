@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './rate.module.css';
-import { ReactComponent as Star } from '../icons/star.svg';
+import { ReactComponent as Star } from './star.svg';
 
 function Rate(props) {
     return (

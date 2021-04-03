@@ -1,10 +1,9 @@
 import React from 'react';
-import counter from '../hocs/counter';
-
+import counter from './counter.hoc';
 import style from './counter.module.css';
 
-import { ReactComponent as Minus } from '../icons/minus.svg';
-import { ReactComponent as Plus } from '../icons/plus.svg';
+import { ReactComponent as Minus } from './minus.svg';
+import { ReactComponent as Plus } from './plus.svg';
 
 function Counter(props) {
   const { decrement, increment, amount } = props;

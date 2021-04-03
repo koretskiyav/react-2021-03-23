@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react';
-import Tabs from './tabs';
-import Rate from './rate';
-import Menu from './menu';
-import Reviews from './reviews';
-import useCommonRate from '../hooks/use-common-rate';
-
+import Tabs from '../tabs';
+import Rate from '../rate';
+import Menu from '../menu';
+import Reviews from '../reviews';
+import useAverage from '../../hooks/use-average';
 import style from './restaurant.module.css';
 
 const navLinks = [
@@ -13,7 +12,7 @@ const navLinks = [
 ]
 
 function Restaurant(props) {
-  const { rate } = useCommonRate(props.restaurant.reviews.map(review => review.rating))
+  const rate = useAverage(props.restaurant.reviews.map(review => review.rating))
 
   const getActiveComponent = useCallback(
     (activeId) => activeId === 'menu' 

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
-import Restaurant from './restaurant';
-import Tabs from './tabs';
+import Restaurant from '../restaurant';
+import Tabs from '../tabs';
 
 export default function Restaurants(props) {
 
@@ -8,8 +8,6 @@ export default function Restaurants(props) {
     (activeId) => props.restaurants.find((restaurant) => restaurant.id === activeId),
     [props.restaurants]
   );
-
-  // const getActiveRestaurant = (activeId) => props.restaurants.find((restaurant) => restaurant.id === activeId)
 
   return (
     <Tabs data={props.restaurants} titlePropName="name">
