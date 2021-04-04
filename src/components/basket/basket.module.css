@@ -1,0 +1,29 @@
+.basket {
+  padding: 12px;
+  padding-bottom: 60px;
+}
+
+.basket > * {
+  padding: 12px 0;
+}
+
+.total {
+  margin-top: 16px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.price {
+  color: var(--yellow);
+}
+
+@media all and (min-width: 768px) {
+  .basket {
+    padding: 12px 24px 0;
+  }
+
+  .basket > * {
+    padding: 0 12px;
+  }
+}

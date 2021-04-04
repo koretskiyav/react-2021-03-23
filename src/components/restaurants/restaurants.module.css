@@ -1,0 +1,11 @@
+.basket-button {
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+.basket-button svg {
+  fill: var(--yellow-light);
+}
