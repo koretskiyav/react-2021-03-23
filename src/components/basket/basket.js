@@ -52,7 +52,7 @@ class Basket extends React.PureComponent {
     const total = this.state.products.reduce((sum, product) => {
         return sum += product.price * this.props.order[product.id]
     }, 0);
-    console.log(total)
+    console.log(total);     // total is correct
     this.setState({ total });
   }
 

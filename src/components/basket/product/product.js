@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from './product.module.css';
 import cn from 'classnames';
-// import { ReactComponent as Minus } from '../../icons/minus.svg';
-// import { ReactComponent as Plus } from '../../icons/plus.svg';
+
 import { decrement, increment, clear } from 'redux/actions';
+
+import { ReactComponent as Minus } from 'icons/minus.svg';
+import { ReactComponent as Plus } from 'icons/plus.svg';
+
+import styles from './product.module.css';
 
 const Product = ({ product, amount, increment, decrement, clear, fetchData }) => {
   useEffect(() => {
@@ -31,20 +34,20 @@ const Product = ({ product, amount, increment, decrement, clear, fetchData }) =>
                     onClick={decrement}
                     data-id="product-decrement"
                   >
-                    -
+                    <Minus />
                   </button>
                   <button
                     className={cn(styles.button, styles['counter-button'])}
                     onClick={increment}
                     data-id="product-increment"
                   >
-                    +
+                    <Plus />
                   </button>
                 </div>
               </div>
                 <div className={styles.total}>
                   <button
-                    className={cn(styles.button, styles['delete-button'])}
+                    className={cn(styles.button, styles['reset-button'])}
                     onClick={clear}
                     data-id="product-clear"
                   >

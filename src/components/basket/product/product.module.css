@@ -96,7 +96,7 @@
   background-color: var(--yellow-light);
 }
 
-.delete-button {
+.reset-button {
   margin-right: 0;
   padding-right: 0;
   display: inline-block;
@@ -106,9 +106,9 @@
   font-size: 32px;
 }
 
-.delete-button:hover,
-.delete-button:focus,
-.delete-button:active {
+.reset-button:hover,
+.reset-button:focus,
+.reset-button:active {
   color: var(--grey-middle);
 }
 
