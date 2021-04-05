@@ -1,22 +1,21 @@
 import styles from './basket.module.css';
 import { connect } from 'react-redux';
+import ProductInfo from './productInfo';
 
 const Basket = ({ basket, total }) => {
   const productsArray = [];
 
   for (let key in basket) {
-    productsArray.push({ product: basket[key], id: key});
+    if (key !== 'total') {
+      productsArray.push({ product: basket[key], id: key});
+    }
   }
 
   return(
     <div>
       <h2>Basket: </h2>
       {productsArray.map((item) => {
-        return <div key={item.id}>
-          <p>{item.product.name}</p>
-          <p>{item.product.amount}</p>
-          <p>{item.product.totalForProduct}</p>
-        </div>
+        return <ProductInfo key={item.id} {...item.product} />
       })}
       <h4>Total:</h4>
       <div>{total}</div>
@@ -32,6 +31,10 @@ const mapStateToProps = (state) => ({
 // const mapDispatchToProps = (dispatch, props) => ({
 //   increment: () => dispatch(increment(props.product.id)),
 //   decrement: () => dispatch(decrement(props.product.id)),
+// });
+
+// const mapDispatchToProps = (dispatch, props) => ({
+//   deletePosition: () => dispatch(deletePosition())
 // });
 
 export default connect(mapStateToProps)(Basket);
