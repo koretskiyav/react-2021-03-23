@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './navigation.module.css';
+import Basket from '../basket';
 
 const Navigation = ({ restaurants, onRestaurantClick }) => (
   <div className={styles.list}>

@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Restaurant from '../restaurant';
 import Navigation from '../navigation';
+import Basket from '../basket';
 
 const Restaurants = ({ restaurants }) => {
   const [activeRestaurantId, setActiveRestaurant] = useState(restaurants[0].id);
@@ -18,6 +19,7 @@ const Restaurants = ({ restaurants }) => {
         onRestaurantClick={setActiveRestaurant}
       />
       <Restaurant restaurant={activeRestaurant} />
+      <Basket restaurants={restaurants} />
     </div>
   );
 };
