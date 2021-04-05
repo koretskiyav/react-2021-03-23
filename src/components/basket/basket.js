@@ -22,9 +22,12 @@ const Basket = ({ activeMenu, order }) => {
   }
   return (
     <div className={styles.basket}>
-      {activeMenu.map((item) => {
-        return <Product key={item.id} product={item} isBasket />;
-      })}
+      <h3>Your Purchases</h3>
+      <div className={styles.productWrapper}>
+        {activeMenu.map((item) => {
+          return <Product key={item.id} product={item} isBasket />;
+        })}
+      </div>
       <div className={styles.totalPrice}>
         Total price: <span>{` ${totalPrice}$`}</span>
       </div>

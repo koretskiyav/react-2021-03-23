@@ -9,9 +9,19 @@
   width: 100%;
   max-width: 600px;
   min-height: 150px;
+  max-height: 500px;
   padding: 10px;
   transform: translate(-50%, -50%);
   z-index: 4;
+}
+
+.basket h3 {
+  text-align: center;
+}
+
+.productWrapper {
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .empty {
