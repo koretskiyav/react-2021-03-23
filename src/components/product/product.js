@@ -4,9 +4,17 @@ import PropTypes from 'prop-types';
 import styles from './product.module.css';
 import { ReactComponent as Minus } from '../../icons/minus.svg';
 import { ReactComponent as Plus } from '../../icons/plus.svg';
-import { decrement, increment } from '../../redux/actions';
+import { decrement, increment, clear } from '../../redux/actions';
 
-const Product = ({ product, amount, increment, decrement, fetchData }) => {
+const Product = ({
+  product,
+  amount,
+  increment,
+  decrement,
+  fetchData,
+  isBasket,
+  clear,
+}) => {
   useEffect(() => {
     fetchData && fetchData(product.id);
   }, []); // eslint-disable-line
@@ -16,8 +24,15 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
       <div className={styles.content}>
         <div>
           <h4 className={styles.title}>{product.name}</h4>
-          <p className={styles.description}>{product.ingredients.join(', ')}</p>
-          <div className={styles.price}>{product.price} $</div>
+          {!isBasket && (
+            <p className={styles.description}>
+              {product.ingredients.join(', ')}
+            </p>
+          )}
+          <div className={styles.price}>
+            {isBasket && `${amount ? amount * product.price : product.price}$`}
+            {!isBasket && `${product.price}$`}
+          </div>
         </div>
         <div>
           <div className={styles.counter}>
@@ -43,6 +58,11 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
           </div>
         </div>
       </div>
+      {isBasket && (
+        <button onClick={clear} className={styles.clearProduct}>
+          X
+        </button>
+      )}
     </div>
   );
 };
@@ -72,6 +92,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch, props) => ({
   increment: () => dispatch(increment(props.product.id)),
   decrement: () => dispatch(decrement(props.product.id)),
+  clear: () => dispatch(clear(props.product.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
