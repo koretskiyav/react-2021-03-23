@@ -4,12 +4,32 @@ import PropTypes from 'prop-types';
 import styles from './product.module.css';
 import { ReactComponent as Minus } from '../../icons/minus.svg';
 import { ReactComponent as Plus } from '../../icons/plus.svg';
-import { decrement, increment } from '../../redux/actions';
+import { decrement, increment, discard } from '../../redux/actions';
 
-const Product = ({ product, amount, increment, decrement, fetchData }) => {
+const Product = ({
+  product,
+  showTotal,
+  amount,
+  increment,
+  decrement,
+  discard,
+  fetchData,
+}) => {
   useEffect(() => {
     fetchData && fetchData(product.id);
   }, []); // eslint-disable-line
+
+  const decrementOrDiscard = () => {
+    if (amount > 1) {
+      return decrement();
+    }
+
+    if (showTotal) {
+      decrement();
+    } else {
+      discard();
+    }
+  };
 
   return (
     <div className={styles.product} data-id="product">
@@ -17,7 +37,9 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
         <div>
           <h4 className={styles.title}>{product.name}</h4>
           <p className={styles.description}>{product.ingredients.join(', ')}</p>
-          <div className={styles.price}>{product.price} $</div>
+          <div className={styles.price}>
+            {showTotal ? 'Total ' + product.price * amount : product.price} $
+          </div>
         </div>
         <div>
           <div className={styles.counter}>
@@ -27,7 +49,7 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
             <div className={styles.buttons}>
               <button
                 className={styles.button}
-                onClick={decrement}
+                onClick={decrementOrDiscard}
                 data-id="product-decrement"
               >
                 <Minus />
@@ -39,6 +61,15 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
               >
                 <Plus />
               </button>
+              {showTotal && (
+                <button
+                  className={styles.button}
+                  onClick={discard}
+                  data-id="product-discard"
+                >
+                  X
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -53,11 +84,13 @@ Product.propTypes = {
     price: PropTypes.number,
     ingredients: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }).isRequired,
+  showTotal: PropTypes.bool,
   fetchData: PropTypes.func,
   // from connect
   amount: PropTypes.number,
   increment: PropTypes.func,
   decrement: PropTypes.func,
+  discard: PropTypes.func,
 };
 
 const mapStateToProps = (state, props) => ({
@@ -72,6 +105,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch, props) => ({
   increment: () => dispatch(increment(props.product.id)),
   decrement: () => dispatch(decrement(props.product.id)),
+  discard: () => dispatch(discard(props.product.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
