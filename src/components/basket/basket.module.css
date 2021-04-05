@@ -1,0 +1,23 @@
+.basket {
+    margin: 30px auto;
+    padding: 12px;
+    max-width: 884px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.table td {
+    min-width: 50px;
+}
+
+.total {
+    text-align: right;
+
+}
+
+.total span {
+font-size: 20px;
+}
