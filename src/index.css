@@ -32,3 +32,12 @@ button {
   text-decoration: none;
   outline: none;
 }
+
+.row {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}

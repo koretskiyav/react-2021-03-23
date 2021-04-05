@@ -12,3 +12,19 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+// const getById = (state, action) => {
+//   const { type, id } = action;
+
+//   switch(type) {
+
+//   }
+// }
+
+// const setById = (state, action) => {
+//   const { type, id } = action;
+
+//   switch(type) {
+    
+//   }
+// }
