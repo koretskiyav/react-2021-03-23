@@ -6,7 +6,14 @@ import { ReactComponent as Minus } from '../../icons/minus.svg';
 import { ReactComponent as Plus } from '../../icons/plus.svg';
 import { decrement, increment } from '../../redux/actions';
 
-const Product = ({ product, amount, increment, decrement, fetchData }) => {
+const Product = ({
+  product,
+  showTotal,
+  amount,
+  increment,
+  decrement,
+  fetchData,
+}) => {
   useEffect(() => {
     fetchData && fetchData(product.id);
   }, []); // eslint-disable-line
@@ -17,7 +24,9 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
         <div>
           <h4 className={styles.title}>{product.name}</h4>
           <p className={styles.description}>{product.ingredients.join(', ')}</p>
-          <div className={styles.price}>{product.price} $</div>
+          <div className={styles.price}>
+            {showTotal ? 'Total ' + product.price * amount : product.price} $
+          </div>
         </div>
         <div>
           <div className={styles.counter}>
@@ -53,6 +62,7 @@ Product.propTypes = {
     price: PropTypes.number,
     ingredients: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }).isRequired,
+  showTotal: PropTypes.bool,
   fetchData: PropTypes.func,
   // from connect
   amount: PropTypes.number,

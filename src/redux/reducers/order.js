@@ -7,6 +7,9 @@ export default (state = {}, action) => {
     case INCREMENT:
       return { ...state, [id]: (state[id] || 0) + 1 };
     case DECREMENT:
+      if (!state[id]) {
+        return state;
+      }
       return { ...state, [id]: (state[id] || 0) - 1 };
     default:
       return state;

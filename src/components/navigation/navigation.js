@@ -13,6 +13,14 @@ const Navigation = ({ restaurants, onRestaurantClick }) => (
         {name}
       </span>
     ))}
+    <span>{' | '}</span>
+    <span
+      key={'basket-id'}
+      className={styles.restaurant}
+      onClick={() => onRestaurantClick('')}
+    >
+      Basket
+    </span>
   </div>
 );
 
