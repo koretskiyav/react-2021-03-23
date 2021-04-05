@@ -1,0 +1,10 @@
+.leftcol {
+  margin-right: 41%;
+}
+
+.rightcol {
+  position: absolute;
+  right: 0;
+  top: 70px;
+  width: 40%;
+}
