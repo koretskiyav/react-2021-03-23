@@ -4,9 +4,17 @@ import PropTypes from 'prop-types';
 import styles from './product.module.css';
 import { ReactComponent as Minus } from '../../icons/minus.svg';
 import { ReactComponent as Plus } from '../../icons/plus.svg';
-import { decrement, increment } from '../../redux/actions';
+import { decrement, increment, remove } from '../../redux/actions';
 
-const Product = ({ product, amount, increment, decrement, fetchData }) => {
+const Product = ({
+  product,
+  amount,
+  increment,
+  decrement,
+  remove,
+  basket,
+  fetchData,
+}) => {
   useEffect(() => {
     fetchData && fetchData(product.id);
   }, []); // eslint-disable-line
@@ -16,7 +24,13 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
       <div className={styles.content}>
         <div>
           <h4 className={styles.title}>{product.name}</h4>
-          <p className={styles.description}>{product.ingredients.join(', ')}</p>
+          {basket ? (
+            ``
+          ) : (
+            <p className={styles.description}>
+              {product.ingredients.join(', ')}
+            </p>
+          )}
           <div className={styles.price}>{product.price} $</div>
         </div>
         <div>
@@ -39,10 +53,18 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
               >
                 <Plus />
               </button>
+              {basket ? (
+                <button onClick={remove} className={styles.button}>
+                  X
+                </button>
+              ) : (
+                ``
+              )}
             </div>
           </div>
         </div>
       </div>
+      {basket ? <div>Subtotal: {amount * product.price}$</div> : ``}
     </div>
   );
 };
@@ -72,6 +94,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch, props) => ({
   increment: () => dispatch(increment(props.product.id)),
   decrement: () => dispatch(decrement(props.product.id)),
+  remove: () => dispatch(remove(props.product.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
