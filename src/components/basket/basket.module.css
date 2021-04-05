@@ -1,0 +1,32 @@
+.basket {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  width: 100%;
+  max-width: 600px;
+  min-height: 150px;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.empty {
+  align-items: center;
+  font-weight: bold;
+}
+
+.totalPrice {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 26px;
+}
+
+.totalPrice span {
+  padding-left: 10px;
+  color: var(--orange-light);
+  font-weight: bold;
+}

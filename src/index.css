@@ -31,4 +31,6 @@ a,
 button {
   text-decoration: none;
   outline: none;
+  border: none;
+  cursor: pointer;
 }

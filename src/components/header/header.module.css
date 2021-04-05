@@ -1,8 +1,9 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 60px;
+  padding: 0 16px;
   background: var(--black);
   position: relative;
 }
@@ -12,4 +13,33 @@
   color: var(--white);
   right: 20px;
   top: 0;
+}
+
+.iconBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.iconBtn svg:hover {
+  transition: color 0.3s;
+  color: var(--orange);
+}
+
+.productAmount {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--orange-light);
+  font-size: 12px;
 }
