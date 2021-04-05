@@ -1,5 +1,5 @@
 import React from 'react';
-import BasketProduct from '../basket-product';
+
 import { restaurants } from '../../fixtures';
 import { connect } from 'react-redux';
 import styles from './basket.module.css';
@@ -65,4 +65,3 @@ const mapStateToProps = (state, props) => ({
 });
 
 export default connect(mapStateToProps)(Basket);
-//export default Basket;
