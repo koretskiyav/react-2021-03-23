@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import styles from './basket.module.css';
 
 const Basket = ({ order }) => {
+  let total = 0;
   return (
     <div>
       {Object.entries(order).map(([key, value]) => {
@@ -13,8 +14,10 @@ const Basket = ({ order }) => {
           restaurant.menu.find((item) => item.id === key)
         );
         let product = restaurant.menu.find((item) => item.id === key);
+        total += value * product.price;
         return <Product key={key} product={product} basket={true} />;
       })}
+      <h2 className={styles.floatRight}>Total: {total}$</h2>
     </div>
   );
 };
