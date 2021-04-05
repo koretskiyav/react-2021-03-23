@@ -15,18 +15,3 @@ export default (state = {}, action) => {
   }
 };
 
-// const getById = (state, action) => {
-//   const { type, id } = action;
-
-//   switch(type) {
-
-//   }
-// }
-
-// const setById = (state, action) => {
-//   const { type, id } = action;
-
-//   switch(type) {
-    
-//   }
-// }
