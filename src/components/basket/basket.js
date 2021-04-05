@@ -36,7 +36,7 @@ const Basket = ({ restaurants, order }) => {
               );
             })
           : 'Choose something in restaurants menus.'}
-        <Total restaurants={restaurants} />
+        <Total products={productsToOrder} restaurants={restaurants} />
       </div>
     </div>
   );

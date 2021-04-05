@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './total.module.css';
 
-const Total = ({ product, order, restaurants }) => {
+const Total = ({ products, order, restaurants }) => {
   const totalCost = useMemo(() => {
-    const resultProducts = product || [];
-    !product &&
+    const resultProducts = products || [];
+    !products &&
       Object.keys(order).forEach((key) => {
         restaurants.find((rest) => {
           return rest.menu?.find((prod) => {
@@ -21,7 +21,7 @@ const Total = ({ product, order, restaurants }) => {
     return resultProducts.reduce((summ, next) => {
       return summ + next.price * order[next.id];
     }, 0);
-  }, [restaurants, product, order]);
+  }, [restaurants, products, order]);
 
   return (
     <div className={styles.product} data-id="product">
