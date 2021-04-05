@@ -15,7 +15,7 @@ const Basket = ({ basket, total }) => {
     <div>
       <h2>Basket: </h2>
       {productsArray.map((item) => {
-        return <ProductInfo key={item.id} {...item.product} />
+        return <ProductInfo key={item.id} {...item.product} id={item.id} />
       })}
       <h4>Total:</h4>
       <div>{total}</div>

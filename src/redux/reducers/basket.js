@@ -1,4 +1,4 @@
-import { DECREMENT, INCREMENT } from '../constants';
+import { DECREMENT, INCREMENT, DELETE_POSITION } from '../constants';
 
 // { [productId]: { name, amount, totalForProduct }, total }
 export default (state = {}, action) => {
@@ -19,6 +19,10 @@ export default (state = {}, action) => {
         totalForProduct: state[id] ? state[id].totalForProduct - price : 0 },
         total: (state.total || 0) - price
      };
+    case DELETE_POSITION:
+      let result = Object.assign({}, state);
+      delete result[id];
+      return result;
     default:
       return state;
   }

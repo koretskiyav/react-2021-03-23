@@ -1,3 +1,6 @@
+import { deletePosition } from '../../redux/actions';
+import { connect } from 'react-redux';
+
 function ProductInfo({ id, name, amount, totalForProduct, deletePosition }) {
   return (
     <div>
@@ -9,10 +12,12 @@ function ProductInfo({ id, name, amount, totalForProduct, deletePosition }) {
   );
 };
 
+const mapStateToProps = (state, props) => ({
+  amount: state.order[props.id] || 0,
+});
 
-// const mapDispatchToProps = (dispatch, props) => ({
-//   deletePosition: () => dispatch(deletePosition())
-// });
+const mapDispatchToProps = (dispatch, props) => ({
+  deletePosition: () => dispatch(deletePosition(props.id))
+});
 
-
-export default ProductInfo;
+export default connect(mapStateToProps, mapDispatchToProps)(ProductInfo);
