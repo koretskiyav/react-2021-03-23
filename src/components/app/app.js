@@ -1,26 +1,19 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Restaurants from '../restaurants';
-import Basket from '../basket';
 import Header from '../header';
 
-export default class App extends PureComponent {
-  state = {
-    products: []
-  };
-
-  componentDidMount() {
-    const products = this.props.restaurants.flatMap((restaurant) => restaurant.menu);
-    this.setState({ products })
-  }
-
+export default class App extends Component {
   render() {
+    const products = this.props.restaurants
+      .flatMap((restaurant) => restaurant.menu);
+    
     return (
       <div>
         <Header />
         <Restaurants 
           restaurants={this.props.restaurants} 
-          products={this.state.products} 
+          products={products} 
         />
       </div>
     );
@@ -28,5 +21,7 @@ export default class App extends PureComponent {
 }
 
 App.propTypes = {
-  restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
+  restaurants: PropTypes.arrayOf(
+    PropTypes.object
+    ).isRequired,
 };

@@ -6,7 +6,7 @@ import Product from './product';
 
 import styles from './basket.module.css';
 
-class Basket extends React.PureComponent {
+class Basket extends React.Component {
   static propTypes = {
     products: PropTypes.arrayOf(
         PropTypes.shape({
@@ -17,62 +17,38 @@ class Basket extends React.PureComponent {
       ).isRequired,
   };
 
-  state = { 
-      products: [],
-      total: 0,
-  };
-
-  componentDidMount() {
-    this.filterProducts();
-    this.calculateTotal();
-  }
-
-  componentDidUpdate() {
-    this.calculateTotal();
-  }
-
-//   shouldComponentUpdate(nextProps, nextState) {
-//     if (
-//         this.state.products === nextState.products 
-//         && this.props.order === nextProps.order
-//       ) {
-//         return false;
-//     }
-//     return true;
-//   }
-
   filterProducts() {
     const { order, products } = this.props;
-    const filteredProducts = products.filter((product) => order[product.id]);
-
-    this.setState({ products: filteredProducts });
+    return products.filter((product) => order[product.id]);
   }
   
-  calculateTotal() {
-    const total = this.state.products.reduce((sum, product) => {
+  calculateTotal(products) {
+    return products.reduce((sum, product) => {
         return sum += product.price * this.props.order[product.id]
     }, 0);
-    console.log(total);     // total is correct
-    this.setState({ total });
   }
 
   render() {
-    if (!this.state.products.length) {
+    const products = this.filterProducts();
+
+    if (!products.length) {
       return (
         <div className={styles.basket}>
           <p>Вы еще ничего не заказали</p>
         </div>
       );
     }
+    
+    const total = this.calculateTotal(products);
 
     return (
       <div className={styles.basket}>
-          {this.state.products.map((product) => (
+          {products.map((product) => (
             <Product key={product.id} product={product} />
           ))}
           <div className={styles.total}>
               Итого: <span className={styles.price}>
-                  ${this.state.total}
+                  ${total}
               </span>
           </div>
       </div>
