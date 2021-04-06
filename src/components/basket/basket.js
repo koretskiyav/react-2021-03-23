@@ -56,11 +56,9 @@ class Basket extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
   order: state.order || {},
 });
-
-const mapDispatchToProps = (dispatch, props) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Basket);
 
