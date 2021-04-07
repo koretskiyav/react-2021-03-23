@@ -1,11 +1,7 @@
-import { normalizedProducts } from '../../fixtures';
+import { normalizedProducts } from 'fixtures';
+import { dict } from 'utils';
 
-const defaultProducts = normalizedProducts.reduce(
-  (acc, product) => ({ ...acc, [product.id]: product }),
-  {}
-);
-
-export default (products = defaultProducts, action) => {
+export default (products = dict(normalizedProducts), action) => {
   const { type } = action;
 
   switch (type) {
