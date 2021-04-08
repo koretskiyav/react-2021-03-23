@@ -75,7 +75,7 @@
       <workItem from="1617890210601" duration="512000" />
       <workItem from="1617890733936" duration="8000" />
       <workItem from="1617890866240" duration="406000" />
-      <workItem from="1617891306750" duration="13524000" />
+      <workItem from="1617891306750" duration="13879000" />
     </task>
     <task id="LOCAL-00001" summary="added component Rate">
       <created>1616840118599</created>
@@ -259,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617911114346</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="trash">
+      <created>1617911192950</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1617911192950</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +301,6 @@
     <MESSAGE value="fixed restaurants render" />
     <MESSAGE value="review component with reducers" />
     <MESSAGE value="fixed menu proptypes issue" />
-    <MESSAGE value="trash" />
     <MESSAGE value="restaurant and review reducers to normalized data" />
     <MESSAGE value="smallfix" />
     <MESSAGE value="added users reducer" />
@@ -303,6 +309,7 @@
     <MESSAGE value="fixed restaurants selectors" />
     <MESSAGE value="mapStateToProps to selectors for product" />
     <MESSAGE value="store for adding review and user" />
-    <option name="LAST_COMMIT_MESSAGE" value="store for adding review and user" />
+    <MESSAGE value="trash" />
+    <option name="LAST_COMMIT_MESSAGE" value="trash" />
   </component>
 </project>
