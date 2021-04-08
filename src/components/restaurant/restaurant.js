@@ -22,7 +22,7 @@ const Restaurant = ({ restaurant }) => {
 
   const content = {
     menu: <Menu menu={menu} key={restaurant.id} />,
-    reviews: <Reviews reviews={reviews} />,
+    reviews: <Reviews restaurantId={restaurant.id} />,
   }[activeTab];
 
   return (
@@ -40,7 +40,7 @@ Restaurant.propTypes = {
   restaurant: PropTypes.shape({
     name: PropTypes.string,
     menu: PropTypes.array,
-    reviews: PropTypes.arrayOf(
+    review: PropTypes.arrayOf(
       PropTypes.shape({
         rating: PropTypes.number.isRequired,
       }).isRequired
