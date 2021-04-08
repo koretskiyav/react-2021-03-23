@@ -7,6 +7,8 @@ const reviewsSelector = (state) => state.reviews;
 
 export const currentRestaurant = (state, restaurantId) => state.restaurants[restaurantId];
 export const currentUser = (state, userId) => state.users[userId];
+export const currentProduct = (state, productId) => state.products[productId];
+export const currentProductAmount = (state, productId) => state.order[productId];
 
 export const orderProductsSelector = createSelector(
   productsSelector,
@@ -46,3 +48,4 @@ export const currentReviews = createSelector(
   (restaurant, reviews) => restaurant.reviews
     .map((reviewId) => reviews[reviewId])
 );
+
