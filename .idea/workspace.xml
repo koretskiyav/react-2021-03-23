@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="96abfe28-d109-427e-8382-51309adc8bb2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qKiSBw0C6T2E9tGlo2ExZOG38q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/components/restaurant" />
+      <recent name="$PROJECT_DIR$/src/icons" />
+      <recent name="$PROJECT_DIR$/src/components/rate" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96abfe28-d109-427e-8382-51309adc8bb2" name="Default Changelist" comment="" />
+      <created>1616834679728</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616834679728</updated>
+      <workItem from="1616834681170" duration="7835000" />
+      <workItem from="1616866507754" duration="8000" />
+      <workItem from="1617007674740" duration="92000" />
+      <workItem from="1617287267843" duration="396000" />
+      <workItem from="1617624515354" duration="27000" />
+      <workItem from="1617648330068" duration="571000" />
+      <workItem from="1617649107881" duration="5630000" />
+      <workItem from="1617691835848" duration="104000" />
+      <workItem from="1617790474997" duration="5953000" />
+      <workItem from="1617861608385" duration="9216000" />
+      <workItem from="1617890210601" duration="512000" />
+      <workItem from="1617890733936" duration="8000" />
+      <workItem from="1617890866240" duration="406000" />
+      <workItem from="1617891306750" duration="13524000" />
+    </task>
+    <task id="LOCAL-00001" summary="added component Rate">
+      <created>1616840118599</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616840118599</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added keys to rendered array">
+      <created>1616840516482</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616840516482</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added reviews component">
+      <created>1616840537174</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616840537174</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixed rate component">
+      <created>1616860648751</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616860648751</updated>
+    </task>
+    <task id="LOCAL-00005" summary="restaurant component logic">
+      <created>1616860681151</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1616860681151</updated>
+    </task>
+    <task id="LOCAL-00006" summary="style for restaurant component">
+      <created>1616861605639</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616861605639</updated>
+    </task>
+    <task id="LOCAL-00007" summary="styles for reviews">
+      <created>1616861901371</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616861901371</updated>
+    </task>
+    <task id="LOCAL-00008" summary="reducer for deleting item from basket">
+      <created>1617650159826</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617650159826</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added constant for reducer">
+      <created>1617650210580</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617650210580</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fixed decrement for reducer">
+      <created>1617650351707</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617650351707</updated>
+    </task>
+    <task id="LOCAL-00011" summary="render basket">
+      <created>1617654629654</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617654629654</updated>
+    </task>
+    <task id="LOCAL-00012" summary="basket item">
+      <created>1617655015774</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617655015774</updated>
+    </task>
+    <task id="LOCAL-00013" summary="changed restaurants and reviews reducers for normalized data">
+      <created>1617862401753</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617862401753</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added users reducer with normalized data">
+      <created>1617862418446</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617862418446</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed restaurants render">
+      <created>1617864710425</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1617864710425</updated>
+    </task>
+    <task id="LOCAL-00016" summary="review component with reducers">
+      <created>1617864743261</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617864743261</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fixed menu proptypes issue">
+      <created>1617881655070</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1617881655070</updated>
+    </task>
+    <task id="LOCAL-00018" summary="trash">
+      <created>1617885779468</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1617885779468</updated>
+    </task>
+    <task id="LOCAL-00019" summary="restaurant and review reducers to normalized data">
+      <created>1617890487523</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1617890487523</updated>
+    </task>
+    <task id="LOCAL-00020" summary="smallfix">
+      <created>1617890707212</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1617890707212</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added users reducer">
+      <created>1617894664714</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1617894664714</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fixed tabs">
+      <created>1617897978160</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1617897978160</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fixed reviews component">
+      <created>1617906279361</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1617906279361</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fixed restaurants selectors">
+      <created>1617908455541</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1617908455541</updated>
+    </task>
+    <task id="LOCAL-00025" summary="mapStateToProps to selectors for product">
+      <created>1617908778874</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1617908778874</updated>
+    </task>
+    <task id="LOCAL-00026" summary="store for adding review and user">
+      <created>1617911114346</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1617911114346</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added keys to rendered array" />
+    <MESSAGE value="added reviews component" />
+    <MESSAGE value="fixed rate component" />
+    <MESSAGE value="restaurant component logic" />
+    <MESSAGE value="style for restaurant component" />
+    <MESSAGE value="styles for reviews" />
+    <MESSAGE value="reducer for deleting item from basket" />
+    <MESSAGE value="added constant for reducer" />
+    <MESSAGE value="fixed decrement for reducer" />
+    <MESSAGE value="render basket" />
+    <MESSAGE value="basket item" />
+    <MESSAGE value="changed restaurants and reviews reducers for normalized data" />
+    <MESSAGE value="added users reducer with normalized data" />
+    <MESSAGE value="fixed restaurants render" />
+    <MESSAGE value="review component with reducers" />
+    <MESSAGE value="fixed menu proptypes issue" />
+    <MESSAGE value="trash" />
+    <MESSAGE value="restaurant and review reducers to normalized data" />
+    <MESSAGE value="smallfix" />
+    <MESSAGE value="added users reducer" />
+    <MESSAGE value="fixed tabs" />
+    <MESSAGE value="fixed reviews component" />
+    <MESSAGE value="fixed restaurants selectors" />
+    <MESSAGE value="mapStateToProps to selectors for product" />
+    <MESSAGE value="store for adding review and user" />
+    <option name="LAST_COMMIT_MESSAGE" value="store for adding review and user" />
+  </component>
+</project>
