@@ -55,8 +55,8 @@ Restaurant.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-  restaurant: currentRestaurant(state, props),
-  currentReviews: currentReviews(state, props)
+  restaurant: currentRestaurant(state, props.restaurantId),
+  currentReviews: currentReviews(state, props.restaurantId)
 });
 
 export default connect(mapStateToProps)(Restaurant);
