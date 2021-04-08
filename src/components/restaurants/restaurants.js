@@ -1,18 +1,20 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Restaurant from '../restaurant';
 import Tabs from '../tabs';
 
 const Restaurants = ({ restaurants }) => {
-  const [activeRestaurantId, setActiveRestaurant] = useState(restaurants[0].id);
-
-  const activeRestaurant = useMemo(
-    () => restaurants.find(({ id }) => id === activeRestaurantId),
-    [activeRestaurantId, restaurants]
+  const [activeRestaurantId, setActiveRestaurant] = useState(
+    Object.keys(restaurants)[0]
   );
 
-  const tabs = restaurants.map(({ id, name }) => ({ id, title: name }));
+  const activeRestaurant = restaurants[activeRestaurantId];
+
+  const tabs = Object.values(restaurants).map(({ id, name }) => ({
+    id,
+    title: name,
+  }));
 
   return (
     <div>
