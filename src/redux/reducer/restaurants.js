@@ -16,6 +16,9 @@ export default (restaurants = defaultRestaurants, action) => {
       }
       return { ...restaurants, active: id };
     case ADD_REVIEW_AND_USER:
+      if (!payload?.revId.length) {
+        return restaurants;
+      }
       return {
         ...restaurants,
         [restaurants[restaurants.active].id]: {
