@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Restaurant from '../restaurant';
@@ -8,13 +8,8 @@ import {
   restTabs
 } from '../../redux/selectors';
 
-const Restaurants = ({ restaurants, restIds, tabs }) => {
-  const [activeRestaurantId, setActiveRestaurant] = useState(restIds[0]);
-
-  const activeRestaurant = useMemo(
-    () => restaurants[activeRestaurantId],
-    [activeRestaurantId, restaurants]
-  );
+const Restaurants = ({ restaurants, tabs }) => {
+  const [activeRestaurantId, setActiveRestaurant] = useState(restaurants[0]);
 
   return (
     <div>
@@ -23,7 +18,7 @@ const Restaurants = ({ restaurants, restIds, tabs }) => {
         activeId={activeRestaurantId}
         onChange={setActiveRestaurant}
       />
-      <Restaurant restaurant={activeRestaurant} />
+      <Restaurant restaurantId={activeRestaurantId} />
     </div>
   );
 };
@@ -35,7 +30,6 @@ Restaurants.propTypes = {
 };
 
 export default connect((state) => ({
-  restaurants: state.restaurants,
-  restIds: restIdsSelector(state),
+  restaurants: restIdsSelector(state),
   tabs: restTabs(state)
 }))(Restaurants);
