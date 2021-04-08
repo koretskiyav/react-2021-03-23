@@ -8,11 +8,7 @@ import styles from './menu.module.css';
 
 class Menu extends React.Component {
   static propTypes = {
-    menu: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }).isRequired
-    ).isRequired,
+    productIds: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   };
 
   state = { error: null };
@@ -22,7 +18,7 @@ class Menu extends React.Component {
   }
 
   render() {
-    const { menu } = this.props;
+    const { productIds } = this.props;
 
     if (this.state.error) {
       return <p>Сейчас меню этого ресторана недоступно :(</p>;
@@ -31,7 +27,7 @@ class Menu extends React.Component {
     return (
       <div className={styles.menu}>
         <div>
-          {menu.map((id) => (
+          {productIds.map((id) => (
             <Product key={id} id={id} />
           ))}
         </div>
