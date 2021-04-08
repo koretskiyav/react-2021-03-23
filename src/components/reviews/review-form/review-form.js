@@ -5,6 +5,7 @@ import Rate from '../../rate';
 import styles from './review-form.module.css';
 import { connect } from 'react-redux';
 import Button from '../../button';
+import {onSubmit} from "../../../redux/actions";
 
 const INITIAL_VALUES = { name: '', text: '', rating: 3 };
 
@@ -51,6 +52,10 @@ const ReviewForm = ({ onSubmit }) => {
   );
 };
 
-export default connect(null, () => ({
-  onSubmit: (values) => console.log(values), // TODO
+export default connect(null, (dispatch, ownProps) => ({
+  onSubmit: (values) => {
+    values.restId = ownProps.restId;
+
+    dispatch(onSubmit(values))
+  }
 }))(ReviewForm);
