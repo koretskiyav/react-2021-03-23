@@ -1,6 +1,7 @@
-import { normalizedReviews as defaultReviews } from '../../fixtures';
+import { normalizedReviews as defaultReviews } from 'fixtures';
+import { dict } from 'utils';
 
-export default (reviews = defaultReviews, action) => {
+export default (reviews = dict(defaultReviews), action) => {
   const { type } = action;
 
   switch (type) {

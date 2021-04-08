@@ -1,6 +1,7 @@
-import { normalizedRestaurants as defaultRestaurants } from '../../fixtures';
+import { normalizedRestaurants as defaultRestaurants } from 'fixtures';
+import { dict } from 'utils';
 
-export default (restaurants = defaultRestaurants, action) => {
+export default (restaurants = dict(defaultRestaurants), action) => {
   const { type } = action;
 
   switch (type) {
