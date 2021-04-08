@@ -28,8 +28,8 @@ Review.propTypes = {
   rating: PropTypes.number.isRequired,
 };
 
-Review.defaultProps = {
-  user: 'Anonymous',
-};
+// Review.defaultProps = {
+//   user: 'Anonymous',
+// };
 
 export default Review;
