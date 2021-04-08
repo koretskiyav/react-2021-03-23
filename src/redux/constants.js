@@ -1,3 +1,5 @@
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const REMOVE = 'REMOVE';
+export const ADD_REVIEW_AND_USER = 'ADD_REVIEW_AND_USER';
+export const SET_ACTIVE_RESTAURANT = 'SET_ACTIVE_RESTAURANT';
