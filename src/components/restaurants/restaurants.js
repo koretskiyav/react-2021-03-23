@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+import { restaurantInfoSelector } from '../../redux/selectors';
 import Restaurant from '../restaurant';
 import Tabs from '../tabs';
 
@@ -21,7 +23,10 @@ const Restaurants = ({ restaurants }) => {
         activeId={activeRestaurantId}
         onChange={setActiveRestaurant}
       />
-      <Restaurant restaurant={activeRestaurant} />
+      <Restaurant
+        restaurant={activeRestaurant}
+        activeRestaurantId={activeRestaurant.id}
+      />
     </div>
   );
 };
@@ -35,5 +40,5 @@ Restaurants.propTypes = {
 };
 
 export default connect((state) => ({
-  restaurants: state.restaurants,
+  restaurants: restaurantInfoSelector(state),
 }))(Restaurants);

@@ -1,26 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Review from './review';
 import ReviewForm from './review-form';
 import styles from './reviews.module.css';
 
-const Reviews = ({ reviews }) => {
-  return (
-    <div className={styles.reviews}>
-      {reviews.map((review) => (
-        <Review key={review.id} {...review} />
-      ))}
-      <ReviewForm />
-    </div>
-  );
-};
+const Reviews = ({ reviewId }) => (
+  <div className={styles.reviews}>
+    {reviewId.map((reviewId) => (
+      <Review key={reviewId} reviewId={reviewId} />
+    ))}
+    <ReviewForm />
+  </div>
+);
 
 Reviews.propTypes = {
-  reviews: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+  reviewsId: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Reviews;
