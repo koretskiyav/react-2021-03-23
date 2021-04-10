@@ -1,26 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Review from './review';
 import ReviewForm from './review-form';
 import styles from './reviews.module.css';
 
-const Reviews = ({ reviews }) => {
+import { loadReviews } from '../../redux/actions';
+
+const Reviews = ({ reviews, restaurantId, loadReviews }) => {
+  useEffect(() => {
+    loadReviews(restaurantId);
+  }, [loadReviews, restaurantId]);
+
   return (
     <div className={styles.reviews}>
-      {reviews.map((review) => (
-        <Review key={review.id} {...review} />
+      {reviews.map((id) => (
+        <Review key={id} id={id} />
       ))}
-      <ReviewForm />
+      <ReviewForm restaurantId={restaurantId} />
     </div>
   );
 };
 
 Reviews.propTypes = {
-  reviews: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+  restaurantId: PropTypes.string,
+  reviews: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
 
-export default Reviews;
+export default connect(null, { loadReviews })(Reviews);
