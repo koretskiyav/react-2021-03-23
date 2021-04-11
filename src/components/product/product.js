@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './product.module.css';
@@ -8,11 +7,7 @@ import { increment, decrement } from '../../redux/actions';
 import Button from '../button';
 import { amountSelector, productSelector } from '../../redux/selectors';
 
-const Product = ({ product, amount, increment, decrement, fetchData }) => {
-  useEffect(() => {
-    fetchData && fetchData(product.id);
-  }, []); // eslint-disable-line
-
+const Product = ({ id, product, amount, increment, decrement }) => {
   return (
     <div className={styles.product} data-id="product">
       <div className={styles.content}>
@@ -38,11 +33,6 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
 };
 
 Product.propTypes = {
-  product: PropTypes.shape({
-    name: PropTypes.string,
-    price: PropTypes.number,
-    ingredients: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  }).isRequired,
   fetchData: PropTypes.func,
   // from connect
   amount: PropTypes.number,

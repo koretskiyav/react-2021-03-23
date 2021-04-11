@@ -25,7 +25,7 @@ const Review = ({ user, text, rating }) => (
 );
 
 Review.propTypes = {
-  user: PropTypes.string,
+  userId: PropTypes.string,
   text: PropTypes.string,
   rating: PropTypes.number.isRequired,
 };
@@ -33,12 +33,6 @@ Review.propTypes = {
 Review.defaultProps = {
   user: 'Anonymous',
 };
-
-// const mapStateToProps = (state, props) => ({
-//   ...reviewWitUserSelector(state, props),
-// });
-
-// const mapStateToProps = (state, props) => reviewWitUserSelector(state, props);
 
 const mapStateToProps = reviewWitUserSelector;
 
