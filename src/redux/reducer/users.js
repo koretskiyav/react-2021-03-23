@@ -12,7 +12,7 @@ import {
 const initialState = {
   entities: {},
   loading: false,
-  loaded: true,
+  loaded: false,
   error: null
 };
 
@@ -36,7 +36,7 @@ export default produce((draft = initialState, action) => {
       break;
     case ADD_REVIEW:
       const { name } = review;
-      draft[userId] = { id: userId, name };
+      draft.entities[userId] = { id: userId, name };
       break;
     default:
       return draft;
