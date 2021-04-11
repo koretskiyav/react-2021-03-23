@@ -2,12 +2,21 @@ import { createSelector } from 'reselect';
 
 const restaurantsSelector = (state) => state.restaurants.entities;
 const orderSelector = (state) => state.order;
-const productsSelector = (state) => state.products;
-const reviewsSelector = (state) => state.reviews;
-const usersSelector = (state) => state.users;
+const productsSelector = (state) => state.products.entities;
+const reviewsSelector = (state) => state.reviews.entities;
+const usersSelector = (state) => state.users.entities;
 
 export const restaurantsLoadingSelector = (state) => state.restaurants.loading;
 export const restaurantsLoadedSelector = (state) => state.restaurants.loaded;
+
+export const restaurantProductsLoadingSelector = (state, props) => state.products.loading[props.restaurantId];
+export const restaurantProductsLoadedSelector = (state, props) => state.products.loaded[props.restaurantId];
+
+export const usersLoadingSelector = (state) => state.users.loading;
+export const usersLoadedSelector = (state) => state.users.loaded;
+
+export const restaurantReviewsLoadingSelector = (state, props) => state.reviews.loading[props.restaurantId];
+export const restaurantReviewsLoadedSelector = (state, props) => state.reviews.loaded[props.restaurantId];
 
 export const restaurantsListSelector = createSelector(
   restaurantsSelector,
@@ -53,7 +62,7 @@ export const averageRatingSelector = createSelector(
   reviewsSelector,
   restaurantSelector,
   (reviews, restaurant) => {
-    const ratings = restaurant.reviews.map((id) => reviews[id].rating);
+    const ratings = restaurant.reviews.map((id) => reviews[id]?.rating);
     return Math.round(
       ratings.reduce((acc, rating) => acc + rating) / ratings.length
     );
