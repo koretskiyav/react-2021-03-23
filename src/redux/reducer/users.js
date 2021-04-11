@@ -1,7 +1,7 @@
 import produce from 'immer';
-import { ADD_REVIEW } from '../constants';
 import { arrToMap } from '../utils';
 import {
+  ADD_REVIEW,
   LOAD_USERS,
   REQUEST,
   SUCCESS,
