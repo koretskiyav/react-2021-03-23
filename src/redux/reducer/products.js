@@ -30,7 +30,6 @@ export default (state = initialState, action) => {
         loading: { ...state.loading, [restaurantId]: false },
         loaded: { ...state.loaded, [restaurantId]: true },
       }
-      break;
     case LOAD_PRODUCTS + FAILURE:
       return {
         ...state,
