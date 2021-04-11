@@ -1,3 +1,4 @@
+import produce from 'immer';
 import {
   ADD_REVIEW,
   LOAD_REVIEWS,
@@ -14,37 +15,30 @@ const initialState = {
   error: null,
 }
 
-export default (state = initialState, action) => {
+export default produce((draft = initialState, action) => {
   const { type, review, reviewId, userId, restaurantId, data, error } = action;
 
   switch (type) {
     case LOAD_REVIEWS + REQUEST:
-      return {
-        ...state,
-        loading: { ...state.loading, [restaurantId]: true },
-        error: null,
-      };
+      draft.loading[restaurantId] = true;
+      draft.error = null
+      break;
     case LOAD_REVIEWS + SUCCESS:
-      return {
-        ...state,
-        entities: { ...state.entities, ...arrToMap(data) },
-        loading: { ...state.loading, [restaurantId]: false },
-        loaded: { ...state.loaded, [restaurantId]: true },
-      };
+      draft.entities = Object.assign(draft.entities, arrToMap(data));
+      draft.loading[restaurantId] = false;
+      draft.loaded[restaurantId] = true;
+      break;
     case LOAD_REVIEWS + FAILURE:
-      return {
-        ...state,
-        loading: { ...state.loading, [restaurantId]: false },
-        loaded: { ...state.loaded, [restaurantId]: false },
-        error: error,
-      };
+      draft.loading[restaurantId] = false;
+      draft.loaded[restaurantId] = false;
+      draft.error = error;
+      break;
     case ADD_REVIEW:
       const { text, rating } = review;
-      return {
-        ...state,
-        entities: { ...state.entities, [reviewId]: { id: reviewId, userId, text, rating } },
-      };
+
+      draft.entities[reviewId] = { id: reviewId, userId, text, rating };
+      break;
     default:
-      return state;
+      return draft;
   }
-};
+});
