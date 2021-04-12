@@ -9,7 +9,8 @@ import {
     SUCCESS,
     FAILURE,
     LOAD_USERS,
-    LOAD_PROUCTS
+    LOAD_PROUCTS,
+
 } from './constants';
 
 export const increment = (id) => ({type: INCREMENT, id});
@@ -28,7 +29,7 @@ export const loadRestaurants = () => ({
     CallAPI: '/api/restaurants',
 });
 
-export const loadProducts =(restaurantId)=>({
+export const loadProducts = (restaurantId) =>({
    type:LOAD_PROUCTS,
    CallAPI:'api/products?id=$(restaurantId)',
 });
@@ -38,16 +39,15 @@ export const loadRevievs =(restaurantId)=>({
     CallAPI:'api/products?id=$(restaurantId)',
 });
 
-export const loadUsers =()=>async(dispatch)=> {
+export const loadUsers = () => async(dispatch) => {
 dispatch({type: LOAD_USERS +REQUEST});
-
 
     try {
         const data = await fetch(`/api/users`).then((res) =>
             res.json()
         );
-        dispatch({type: LOAD_USERS + SUCCESS, data, restaurantId});
+        dispatch({type: LOAD_USERS + SUCCESS, data});
     } catch (error) {
-        dispatch({type: LOAD_USERS + FAILURE, error, restaurantId});
+        dispatch({type: LOAD_USERS + FAILURE, error});
     }
 };

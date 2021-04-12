@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './product.module.css';
-import Loader from './loader';
+import Loader from "../loader";
 
 import { increment, decrement } from '../../redux/actions';
 
 import Button from '../button';
 import { amountSelector, productSelector } from '../../redux/selectors';
-import Loader from "../loader";
 
 const Product = ({ product, amount, increment, decrement, fetchData }) => {
   useEffect(() => {

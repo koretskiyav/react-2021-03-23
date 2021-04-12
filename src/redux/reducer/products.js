@@ -1,47 +1,49 @@
-import { arrToMap } from '../utils';
+import {arrToMap} from '../utils';
 
 import {
-  REQUEST,
-  LOAD_PROUCTS,
-  SUCCESS,
-  FAILURE, ADD_REVIEW, LOAD_REVIEWS,
+    REQUEST,
+    LOAD_PROUCTS,
+    SUCCESS,
+    FAILURE,
 } from '../constants';
-import produce from "immer";
+
 const initState = {
-  entities: {},
-  loading: false,
-  loaded: false,
-  error: null,
+    entities: {},
+    loading: false,
+    loaded: false,
+    error: null,
 };
 
 export default (state = initState, action) => {
-  const { type, error, data} = action;
+    const {type, error, data} = action;
 
-  switch (type) {
+    switch (type) {
+        case LOAD_PROUCTS + REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+            };
+        case LOAD_PROUCTS + SUCCESS:
+            return {
+                ...state,
+                entities: {
+                    ...state.entities,
+                    ...arrToMap(data)
+                },
+                loading: false,
+                loaded: true,
+            };
 
-    case LOAD_PROUCTS + SUCCESS:
-      return {
-        ...state,
-        entities: {
-          ...state.entities,
-          ...arrToMap(data)
-        },
-        loading: false,
-        loaded: true,
-      };
 
-    case LOAD_PROUCTS + REQUEST:
-      return {
-        ...state,
-        loading: true,
-        error: null,
-      };
-    case LOAD_PROUCTS + FAILURE:
-      return {
-        ...state,
-        loading: false,
-        loaded: false,
-        error,
-      };
-  }
+        case LOAD_PROUCTS + FAILURE:
+            return {
+                ...state,
+                loading: false,
+                loaded: false,
+                error,
+            };
+        default:
+            return state;
+    }
 };

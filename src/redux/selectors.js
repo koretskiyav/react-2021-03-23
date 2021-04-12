@@ -69,9 +69,6 @@ export const averageRatingSelector = createSelector(
   reviewsSelector,
   restaurantSelector,
   (reviews, restaurant) => {
-    const ratings = restaurant.reviews.map((id) => reviews[id].rating);
-    return Math.round(
-      ratings.reduce((acc, rating) => acc + rating) / ratings.length
-    );
+    return 0;
   }
 );
