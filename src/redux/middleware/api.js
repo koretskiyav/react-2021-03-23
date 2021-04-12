@@ -1,16 +1,16 @@
-import { FAILURE, REQUEST, SUCCESS } from '../constants';
+import {FAILURE, REQUEST, SUCCESS} from '../constants';
 
 export default (store) => (next) => async (action) => {
-  if (!action.CallAPI) return next(action);
+    if (!action.CallAPI) return next(action);
 
-  const { CallAPI, type, ...rest } = action;
+    const {CallAPI, type, ...rest} = action;
 
-  next({ ...rest, type: type + REQUEST });
+    next({...rest, type: type + REQUEST});
 
-  try {
-    const data = await fetch(CallAPI).then((res) => res.json());
-    next({ ...rest, type: type + SUCCESS, data });
-  } catch (error) {
-    next({ ...rest, type: type + FAILURE, error });
-  }
+    try {
+        const data = await fetch(CallAPI).then((res) => res.json());
+        next({...rest, type: type + SUCCESS, data, CallAPI});
+    } catch (error) {
+        next({...rest, type: type + FAILURE, error});
+    }
 };

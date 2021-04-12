@@ -21,7 +21,7 @@ const Restaurant = ({ restaurant, averageRating }) => {
   ];
 
   const content = {
-    menu: <Menu menu={menu} key={id} />,
+    menu: <Menu menu={menu} restourant={id} />,
     reviews: <Reviews reviews={reviews} restaurantId={id} />,
   }[activeTab];
 
