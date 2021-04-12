@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './product.module.css';
+import Loader from "../loader";
 
 import { increment, decrement } from '../../redux/actions';
 
@@ -12,6 +13,8 @@ const Product = ({ product, amount, increment, decrement, fetchData }) => {
   useEffect(() => {
     fetchData && fetchData(product.id);
   }, []); // eslint-disable-line
+
+  if (!product) return <Loader/>
 
   return (
     <div className={styles.product} data-id="product">

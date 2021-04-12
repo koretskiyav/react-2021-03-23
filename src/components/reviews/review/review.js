@@ -18,7 +18,7 @@ const Review = ({ user, text, rating }) => (
         </p>
       </div>
       <div className={styles.rate}>
-        <Rate value={rating} />
+        {rating &&<Rate value={rating}/>}
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@ const Review = ({ user, text, rating }) => (
 Review.propTypes = {
   user: PropTypes.string,
   text: PropTypes.string,
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.number,
 };
 
 Review.defaultProps = {
