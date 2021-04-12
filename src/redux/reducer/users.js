@@ -20,25 +20,19 @@ export default produce((draft = initialState, action) => {
 
   switch (type) {
     case LOAD_USERS + REQUEST:
-      return {
-        ...draft,
-        loading: true,
-        error: null,
-      };
+      draft.loading = true;
+      draft.error = null;
+      break;
     case LOAD_USERS + SUCCESS:
-      return {
-        ...draft,
-        entities: { ...draft.entities, ...arrToMap(data) },
-        loading: false,
-        loaded: true,
-      };
+      draft.entities = { ...draft.entities, ...arrToMap(data) };
+      draft.loading = false;
+      draft.loaded = true;
+      break;
     case LOAD_USERS + FAILURE:
-      return {
-        ...draft,
-        loading: false,
-        loaded: false,
-        error,
-      };
+      draft.loading = false;
+      draft.loaded = false;
+      draft.error = error;
+      break;
     case ADD_REVIEW:
       const { name } = review;
       draft.entities[userId] = { id: userId, name };
@@ -46,4 +40,6 @@ export default produce((draft = initialState, action) => {
     default:
       return draft;
   }
+
+  return draft;
 });
