@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> b5f9bfe384059c9fd0cd8396e07fe7c58a98ab9c
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Restaurant from '../restaurant';
@@ -11,6 +15,7 @@ import {
 } from '../../redux/selectors';
 import { loadRestaurants } from '../../redux/actions';
 
+<<<<<<< HEAD
 const Restaurants = ({ restaurants, loading, loaded, loadRestaurants }) => {
   const [activeRestaurantId, setActiveRestaurant] = useState(
     restaurants[0]?.id
@@ -26,6 +31,19 @@ const Restaurants = ({ restaurants, loading, loaded, loadRestaurants }) => {
   if (!loaded) return 'No data :(';
 
   const tabs = restaurants.map(({ id, name }) => ({ id, title: name }));
+=======
+const Restaurants = ({ restaurants }) => {
+  const [activeRestaurantId, setActiveRestaurant] = useState(
+    Object.keys(restaurants)[0]
+  );
+
+  const activeRestaurant = restaurants[activeRestaurantId];
+
+  const tabs = Object.values(restaurants).map(({ id, name }) => ({
+    id,
+    title: name,
+  }));
+>>>>>>> b5f9bfe384059c9fd0cd8396e07fe7c58a98ab9c
 
   return (
     <div>
