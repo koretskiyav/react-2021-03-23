@@ -8,7 +8,7 @@ import { increment, decrement } from '../../redux/actions';
 import Button from '../button';
 import { amountSelector, productSelector } from '../../redux/selectors';
 
-const Product = ({ product, amount, increment, decrement, fetchData }) => {
+const Product = ({ product, amount, increment, decrement, fetchData, id }) => {
   useEffect(() => {
     fetchData && fetchData(product.id);
   }, []); // eslint-disable-line
