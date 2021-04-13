@@ -1,10 +1,9 @@
-import { FAILURE, REQUEST, SUCCESS } from '../constants';
+import { REQUEST, SUCCESS, FAILURE } from '../constants';
 
 export default (store) => (next) => async (action) => {
   if (!action.CallAPI) return next(action);
 
   const { CallAPI, type, ...rest } = action;
-
   next({ ...rest, type: type + REQUEST });
 
   try {
