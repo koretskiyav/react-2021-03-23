@@ -14,8 +14,13 @@ const Reviews = ({ reviews, restaurantId, loadReviews }) => {
 
   return (
     <div className={styles.reviews}>
+<<<<<<< HEAD
       {reviews.map((id) => (
         <Review key={id} id={id} />
+=======
+      {reviews.map((review) => (
+        <Review key={review.id} id={review} />
+>>>>>>> b5f9bfe384059c9fd0cd8396e07fe7c58a98ab9c
       ))}
       <ReviewForm restaurantId={restaurantId} />
     </div>

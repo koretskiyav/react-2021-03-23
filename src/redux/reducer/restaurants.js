@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import produce from 'immer';
 import {
   ADD_REVIEW,
@@ -7,6 +8,14 @@ import {
   FAILURE,
 } from '../constants';
 import { arrToMap } from '../utils';
+=======
+import { normalizedRestaurants } from '../../fixtures';
+
+const defaultRestaurants = normalizedRestaurants.reduce((total, item) => {
+  total[item.id] = item;
+  return total;
+}, {});
+>>>>>>> b5f9bfe384059c9fd0cd8396e07fe7c58a98ab9c
 
 const initialState = {
   entities: {},
