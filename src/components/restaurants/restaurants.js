@@ -27,7 +27,7 @@ const Restaurants = ({
   if (loading) return <Loader />;
   if (!loaded) return 'No data :(';
 
-  const { restId } = match.params;
+  const { restId, tabId } = match.params;
 
   return (
     <div>
@@ -35,7 +35,7 @@ const Restaurants = ({
         {restaurants.map(({ id, name }) => (
           <NavLink
             key={id}
-            to={`/restaurants/${id}`}
+            to={`/restaurants/${id}/${tabId || 'menu'}`}
             className={styles.tab}
             activeClassName={styles.active}
           >
@@ -44,7 +44,7 @@ const Restaurants = ({
         ))}
       </div>
       {restId ? (
-        <Restaurant id={restId} />
+        <Restaurant id={restId} tabId={tabId} />
       ) : (
         <p style={{ textAlign: 'center' }}>Select restaurant</p>
       )}
