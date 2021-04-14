@@ -47,6 +47,13 @@ export const orderProductsSelector = createSelector(
       }))
 );
 
+export const restaurantByProductIdSelector = createSelector(
+  restaurantsListSelector,
+  (state, { id }) => id,
+  (restaurants, productId) =>
+    restaurants.find(({ menu }) => menu.includes(productId)).id
+);
+
 export const totalSelector = createSelector(
   orderProductsSelector,
   (orderProducts) =>

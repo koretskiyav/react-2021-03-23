@@ -25,6 +25,7 @@ function Basket({ title = 'Basket', total, orderProducts }) {
           product={product}
           amount={amount}
           key={product.id}
+          id={product.id}
           subtotal={subtotal}
         />
       ))}
