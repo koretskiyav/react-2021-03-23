@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Menu from '../menu';
 import Reviews from '../reviews';
 import Banner from '../banner';
 import Rate from '../rate';
-import Tabs from '../tabs';
 import {
   averageRatingSelector,
   restaurantSelector,
 } from '../../redux/selectors';
 
-const Restaurant = ({ restaurant, averageRating }) => {
+import styles from './restaurant.module.css';
+
+const Restaurant = ({ restaurant, averageRating, activeTab }) => {
   const { id, name, menu, reviews } = restaurant;
-  const [activeTab, setActiveTab] = useState('menu');
 
   const tabs = [
     { id: 'menu', title: 'Menu' },
@@ -30,7 +31,18 @@ const Restaurant = ({ restaurant, averageRating }) => {
       <Banner heading={name}>
         {!!averageRating && <Rate value={averageRating} />}
       </Banner>
-      <Tabs tabs={tabs} activeId={activeTab} onChange={setActiveTab} />
+      <div className={styles.tabs}>
+        {tabs.map((tab) => (
+          <NavLink
+            key={tab.id}
+            to={`/restaurants/${id}/${tab.id}`}
+            className={styles.tab}
+            activeClassName={styles.active}
+          >
+            {tab.title}
+          </NavLink>
+        ))}
+      </div>
       {content}
     </div>
   );
@@ -44,6 +56,12 @@ Restaurant.propTypes = {
     reviews: PropTypes.array,
   }).isRequired,
   averageRating: PropTypes.number,
+};
+
+// заглушка, если где-то еще используются ссылки вида "/restaurants/:restId"
+
+Restaurant.defaultProps = {
+  activeTab: 'menu',
 };
 
 const mapStateToProps = (state, props) => ({

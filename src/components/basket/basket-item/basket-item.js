@@ -20,7 +20,7 @@ function BasketItem({
   return (
     <div className={styles.basketItem}>
       <div className={styles.name}>
-        <Link to={`/restaurants/${restaurantId}`}>
+        <Link to={`/restaurants/${restaurantId}/menu`}>
           {product.name}
         </Link>
       </div>
