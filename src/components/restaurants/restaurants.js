@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Restaurant from '../restaurant';
 import Loader from '../loader';
@@ -13,21 +13,15 @@ import { loadRestaurants } from '../../redux/actions';
 
 import styles from './restaurants.module.css';
 
-const Restaurants = ({
-  restaurants,
-  loading,
-  loaded,
-  loadRestaurants,
-  match,
-}) => {
+const Restaurants = ({ restaurants, loading, loaded, loadRestaurants }) => {
   useEffect(() => {
     if (!loading && !loaded) loadRestaurants();
   }, [loadRestaurants, loading, loaded]);
 
+  const { restId, tab } = useParams();
+
   if (loading) return <Loader />;
   if (!loaded) return 'No data :(';
-
-  const { restId } = match.params;
 
   return (
     <div>
@@ -44,7 +38,7 @@ const Restaurants = ({
         ))}
       </div>
       {restId ? (
-        <Restaurant id={restId} />
+        <Restaurant id={restId} activeTab={tab} />
       ) : (
         <p style={{ textAlign: 'center' }}>Select restaurant</p>
       )}

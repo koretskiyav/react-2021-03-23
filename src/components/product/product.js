@@ -22,7 +22,7 @@ const Product = ({ product, amount, increment, decrement }) => {
         <div>
           <div className={styles.counter}>
             <div className={styles.count} data-id="product-amount">
-              {amount}
+              {amount.amount}
             </div>
             <div className={styles.buttons}>
               <Button onClick={decrement} icon="minus" />
@@ -42,7 +42,10 @@ Product.propTypes = {
     ingredients: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }),
   // from connect
-  amount: PropTypes.number,
+  amount: PropTypes.shape({
+    amount: PropTypes.number,
+    restorantId: PropTypes.string,
+  }),
   increment: PropTypes.func,
   decrement: PropTypes.func,
 };
@@ -53,7 +56,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  increment: () => dispatch(increment(props.id)),
+  increment: () => dispatch(increment(props.id, props.restaurantId)),
   decrement: () => dispatch(decrement(props.id)),
 });
 
