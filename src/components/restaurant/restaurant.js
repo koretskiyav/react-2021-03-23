@@ -6,7 +6,7 @@ import Menu from '../menu';
 import Reviews from '../reviews';
 import Banner from '../banner';
 import Rate from '../rate';
-// import Tabs from '../tabs';
+
 import {
   averageRatingSelector,
   restaurantSelector,
@@ -27,7 +27,7 @@ const Restaurant = ({ restaurant, averageRating, tabId }) => {
     menu: <Menu menu={menu} key={id} restaurantId={id} />,
     reviews: <Reviews reviews={reviews} restaurantId={id} />,
   }[activeTab];
-  
+
   return (
     <div>
       <Banner heading={name}>
