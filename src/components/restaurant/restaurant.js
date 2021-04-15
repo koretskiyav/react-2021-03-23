@@ -10,13 +10,12 @@ import {
   averageRatingSelector,
   restaurantSelector,
 } from '../../redux/selectors';
-import { useLocation } from 'react-router';
+import { useParams } from 'react-router';
 
 const Restaurant = ({ restaurant, averageRating }) => {
   const { id, name, menu, reviews } = restaurant;
-  const location = useLocation();
-  const activeTab =
-    location.pathname.split('/')?.[3] === 'reviews' ? 'reviews' : 'menu';
+  const matchParams = useParams();
+  const activeTab = matchParams.subTab === 'reviews' ? 'reviews' : 'menu';
 
   const tabs =
     activeTab === 'menu'
