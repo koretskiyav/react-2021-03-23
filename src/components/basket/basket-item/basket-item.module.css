@@ -72,3 +72,12 @@
 .info p:first-child {
   font-weight: bold;
 }
+
+.itemLink {
+  padding: 4px 12px;
+  color: var(--black);
+}
+
+.itemLink.active {
+  border-bottom: 1px solid var(--black);
+}

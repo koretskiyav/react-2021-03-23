@@ -36,12 +36,16 @@ export const amountSelector = (state, { id }) => orderSelector(state)[id] || 0;
 export const orderProductsSelector = createSelector(
   productsSelector,
   orderSelector,
-  (products, order) =>
+  restaurantsListSelector,
+  (products, order, restaurants) =>
     Object.keys(order)
       .filter((productId) => order[productId] > 0)
       .map((productId) => products[productId])
       .map((product) => ({
         product,
+        restaurantId: restaurants
+                        .filter((restaurant) => restaurant.menu.includes(product.id))
+                        .map((restaurant) => restaurant.id)[0],
         amount: order[product.id],
         subtotal: order[product.id] * product.price,
       }))
