@@ -14,11 +14,7 @@ const Product = ({ id, product, amount, decrement }) => {
   const dispatch = useDispatch();
 
   const activeRestId = useMemo(() => {
-    const idPos = location.pathname.substr(1).search('/');
-    if (idPos === -1) {
-      return undefined;
-    }
-    return location.pathname.substr(idPos + 2, 36);
+    return location.pathname.split('/')?.[2];
   }, [location.pathname]);
 
   if (!product) return null;
