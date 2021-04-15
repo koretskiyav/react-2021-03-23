@@ -27,7 +27,7 @@ const Restaurants = ({
   if (loading) return <Loader />;
   if (!loaded) return 'No data :(';
 
-  const { restId } = match.params;
+  const { restId, tab } = match.params;
 
   return (
     <div>
@@ -44,7 +44,7 @@ const Restaurants = ({
         ))}
       </div>
       {restId ? (
-        <Restaurant id={restId} />
+        <Restaurant id={restId} tab={tab} />
       ) : (
         <p style={{ textAlign: 'center' }}>Select restaurant</p>
       )}
