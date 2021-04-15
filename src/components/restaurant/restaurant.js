@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Menu from '../menu';
@@ -10,15 +10,23 @@ import {
   averageRatingSelector,
   restaurantSelector,
 } from '../../redux/selectors';
+import { useParams } from 'react-router';
 
 const Restaurant = ({ restaurant, averageRating }) => {
   const { id, name, menu, reviews } = restaurant;
-  const [activeTab, setActiveTab] = useState('menu');
+  const matchParams = useParams();
+  const activeTab = matchParams.subTab === 'reviews' ? 'reviews' : 'menu';
 
-  const tabs = [
-    { id: 'menu', title: 'Menu' },
-    { id: 'reviews', title: 'Reviews' },
-  ];
+  const tabs =
+    activeTab === 'menu'
+      ? [
+          { id: 'menu', title: 'Menu' },
+          { id: 'reviews', title: 'Reviews', to: `/restaurants/${id}/reviews` },
+        ]
+      : [
+          { id: 'menu', title: 'Menu', to: `/restaurants/${id}` },
+          { id: 'reviews', title: 'Reviews' },
+        ];
 
   const content = {
     menu: <Menu menu={menu} key={id} restaurantId={id} />,
@@ -28,9 +36,9 @@ const Restaurant = ({ restaurant, averageRating }) => {
   return (
     <div>
       <Banner heading={name}>
-        {!!averageRating && <Rate value={averageRating} />}
+        <Rate value={averageRating} />
       </Banner>
-      <Tabs tabs={tabs} activeId={activeTab} onChange={setActiveTab} />
+      <Tabs tabs={tabs} activeId={activeTab} onChange={(val) => {}} />
       {content}
     </div>
   );

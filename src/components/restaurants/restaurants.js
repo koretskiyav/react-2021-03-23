@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -23,11 +23,11 @@ const Restaurants = ({
   useEffect(() => {
     if (!loading && !loaded) loadRestaurants();
   }, [loadRestaurants, loading, loaded]);
+  const { restId, subTab } = match.params;
+  const subPath = useMemo(() => (subTab ? `/${subTab}` : ''), [subTab]);
 
   if (loading) return <Loader />;
   if (!loaded) return 'No data :(';
-
-  const { restId } = match.params;
 
   return (
     <div>
@@ -35,7 +35,7 @@ const Restaurants = ({
         {restaurants.map(({ id, name }) => (
           <NavLink
             key={id}
-            to={`/restaurants/${id}`}
+            to={`/restaurants/${id}` + subPath}
             className={styles.tab}
             activeClassName={styles.active}
           >

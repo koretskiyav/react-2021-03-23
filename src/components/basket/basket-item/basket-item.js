@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
 import { increment, decrement, remove } from '../../../redux/actions';
+import { restaurantMapSelector } from '../../../redux/selectors';
 import Button from '../../button';
 import styles from './basket-item.module.css';
 
@@ -12,11 +14,19 @@ function BasketItem({
   increment,
   decrement,
   remove,
+  restMap,
 }) {
   return (
     <div className={styles.basketItem}>
       <div className={styles.name}>
-        <span>{product.name}</span>
+        <NavLink
+          key={product.id}
+          to={`/restaurants/${restMap[product.id]}`}
+          className={styles.tab}
+          activeClassName={styles.active}
+        >
+          {product.name}
+        </NavLink>
       </div>
       <div className={styles.info}>
         <div className={styles.counter}>
@@ -37,4 +47,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   remove: () => dispatch(remove(ownProps.product.id)),
 });
 
-export default connect(null, mapDispatchToProps)(BasketItem);
+const mapStateToProps = (state) => {
+  return {
+    restMap: restaurantMapSelector(state),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasketItem);
