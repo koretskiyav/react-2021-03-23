@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Menu from '../menu';
@@ -6,14 +6,17 @@ import Reviews from '../reviews';
 import Banner from '../banner';
 import Rate from '../rate';
 import Tabs from '../tabs';
+import { useParams } from 'react-router-dom'
 import {
   averageRatingSelector,
   restaurantSelector,
 } from '../../redux/selectors';
 
+
 const Restaurant = ({ restaurant, averageRating }) => {
+  let { activeTab } = useParams()
+  if (!activeTab) activeTab = 'menu'
   const { id, name, menu, reviews } = restaurant;
-  const [activeTab, setActiveTab] = useState('menu');
 
   const tabs = [
     { id: 'menu', title: 'Menu' },
@@ -30,7 +33,7 @@ const Restaurant = ({ restaurant, averageRating }) => {
       <Banner heading={name}>
         {!!averageRating && <Rate value={averageRating} />}
       </Banner>
-      <Tabs tabs={tabs} activeId={activeTab} onChange={setActiveTab} />
+      <Tabs tabs={tabs} activeId={activeTab ? activeTab : 'menu'} restaurantId={id}/>
       {content}
     </div>
   );
