@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch } from 'react-router';
+import { Redirect, Route, Switch, useRouteMatch } from 'react-router';
 import Tabs from '../tabs';
 import Restaurant from '../restaurant';
 import Loader from '../loader';
 import {
   restaurantsListSelector,
+  restaurantIdsSelector,
   restaurantsLoadedSelector,
   restaurantsLoadingSelector,
 } from '../../redux/selectors';
 import { loadRestaurants } from '../../redux/actions';
 
-const Restaurants = ({ restaurants, loading, loaded, loadRestaurants }) => {
+const Restaurants = ({ restaurants, restaurantsId, loading, loaded, loadRestaurants }) => {
   useEffect(() => {
     if (!loading && !loaded) loadRestaurants();
   }, [loadRestaurants, loading, loaded]);
@@ -33,11 +34,12 @@ const Restaurants = ({ restaurants, loading, loaded, loadRestaurants }) => {
       <Tabs tabs={tabs} />
       <Switch>
         <Route path="/restaurants/:restId">
-          {({ match }) => <Restaurant id={match.params.restId} />}
+          {({ match }) => restaurantsId.includes(match.params.restId)
+                          ? <Restaurant id={match.params.restId} />
+                          : <Route component={() => <p>404 - not found :(</p>} />
+          }
         </Route>
-        <Route>
-          <p style={{ textAlign: 'center' }}>Select restaurant</p>
-        </Route>
+        <Redirect from="/restaurants" to={tabs[0].to} />
       </Switch>
     </div>
   );
@@ -53,6 +55,7 @@ Restaurants.propTypes = {
 
 const mapStateToProps = (state) => ({
   restaurants: restaurantsListSelector(state),
+  restaurantsId: restaurantIdsSelector(state),
   loading: restaurantsLoadingSelector(state),
   loaded: restaurantsLoadedSelector(state),
 });
