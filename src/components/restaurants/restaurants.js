@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch } from 'react-router';
+import { Redirect, Route, Switch, useRouteMatch } from 'react-router';
 import Tabs from '../tabs';
 import Restaurant from '../restaurant';
 import Loader from '../loader';
@@ -35,9 +35,11 @@ const Restaurants = ({ restaurants, loading, loaded, loadRestaurants }) => {
         <Route path="/restaurants/:restId">
           {({ match }) => <Restaurant id={match.params.restId} />}
         </Route>
-        <Route>
-          <p style={{ textAlign: 'center' }}>Select restaurant</p>
-        </Route>
+        <Redirect
+          from="/restaurants"
+          exact={true}
+          to={`/restaurants/${restaurants[0] ? restaurants[0]?.id : ''}`}
+        />
       </Switch>
     </div>
   );

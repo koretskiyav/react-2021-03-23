@@ -27,6 +27,11 @@ const Restaurant = ({ restaurant, averageRating, match }) => {
       </Banner>
       <Tabs tabs={tabs} />
       <Switch>
+        <Redirect
+          from="/restaurants/:restId"
+          exact={true}
+          to={`/restaurants/${id}/menu`}
+        />
         <Route path="/restaurants/:restId/menu">
           <Menu menu={menu} restaurantId={id} />
         </Route>

@@ -1,0 +1,14 @@
+.reviews-enter {
+  opacity: 0;
+}
+.reviews-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+/* .reviews-exit {
+  opacity: 1;
+}
+.reviews-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+} */
