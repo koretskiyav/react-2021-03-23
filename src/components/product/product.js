@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './product.module.css';
+
+import { rates, signs } from '../currency-switcher/currencies';
+import { currencyContext } from '../../contexts/currency-context';
 
 import { increment, decrement } from '../../redux/actions';
 
@@ -9,6 +12,8 @@ import Button from '../button';
 import { amountSelector, productSelector } from '../../redux/selectors';
 
 const Product = ({ product, amount, increment, decrement }) => {
+  const { currency } = useContext(currencyContext);
+
   if (!product) return null;
 
   return (
@@ -17,7 +22,7 @@ const Product = ({ product, amount, increment, decrement }) => {
         <div>
           <h4 className={styles.title}>{product.name}</h4>
           <p className={styles.description}>{product.ingredients.join(', ')}</p>
-          <div className={styles.price}>{product.price} $</div>
+          <div className={styles.price}>{(+product.price * +rates[currency]).toFixed(2)} {signs[currency]}</div>
         </div>
         <div>
           <div className={styles.counter}>

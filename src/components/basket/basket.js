@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import './basket.css';
 import styles from './basket.module.css';
 import itemStyles from './basket-item/basket-item.module.css';
+
 import BasketItem from './basket-item';
 import Button from '../button';
-import { orderProductsSelector, totalSelector } from '../../redux/selectors';
-import { UserConsumer } from '../../contexts/user-context';
 
-function Basket({ title = 'Basket', total, orderProducts }) {
+import { orderProductsSelector, totalSelector } from '../../redux/selectors';
+import { checkout } from '../../redux/actions';
+import { UserConsumer } from '../../contexts/user-context';
+import { currencyContext } from '../../contexts/currency-context';
+import { rates, signs } from '../currency-switcher/currencies';
+
+function Basket({ title = 'Basket', total, orderProducts, onClick }) {
+  const { currency } = useContext(currencyContext);
+
+  const location = useLocation();
+
+  const handleClick = (event) => {
+    if (location.pathname === '/checkout') {
+      event.preventDefault();
+      event.target.disabled = true;
+      onClick();
+    }
+  };
+
   if (!total) {
     return (
       <div className={styles.basket}>
@@ -21,7 +38,7 @@ function Basket({ title = 'Basket', total, orderProducts }) {
   }
 
   return (
-    <div className={styles.basket}>
+    <div id="basket-container" className={styles.basket}>
       <h4 className={styles.title}>
         <UserConsumer>{({ name }) => `${name}'s ${title}`}</UserConsumer>
       </h4>
@@ -43,11 +60,11 @@ function Basket({ title = 'Basket', total, orderProducts }) {
           <p>Total</p>
         </div>
         <div className={itemStyles.info}>
-          <p>{`${total} $`}</p>
+          <p>{(+total * +rates[currency]).toFixed(2)} {signs[currency]}</p>
         </div>
       </div>
       <Link to="/checkout">
-        <Button primary block>
+        <Button primary block onClick={handleClick}>
           checkout
         </Button>
       </Link>
@@ -62,4 +79,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Basket);
+const mapDispatchToProps = (dispatch, props) => ({
+  onClick: () => dispatch(checkout()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Basket);
