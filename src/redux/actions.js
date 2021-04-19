@@ -1,4 +1,5 @@
 import { replace } from 'connected-react-router';
+import history from '../history';
 import {
   DECREMENT,
   INCREMENT,
@@ -8,6 +9,9 @@ import {
   LOAD_PRODUCTS,
   LOAD_REVIEWS,
   LOAD_USERS,
+  ORDER_PROCESS,
+  REQUEST,
+  SUCCESS,
 } from './constants';
 
 import {
@@ -15,6 +19,7 @@ import {
   usersLoadedSelector,
   reviewsLoadingSelector,
   reviewsLoadedSelector,
+  orderIsProcessingSelector,
 } from './selectors';
 
 export const increment = (id) => ({ type: INCREMENT, id });
@@ -67,4 +72,27 @@ export const loadUsers = () => async (dispatch, getState) => {
   if (loading || loaded) return;
 
   dispatch(_loadUsers());
+};
+
+export const orderProcessStart = (orderData) => async (dispatch, getState) => {
+  console.log('orderProcessStart');
+  const state = getState();
+  const processing = orderIsProcessingSelector(state);
+  console.log('processing', processing);
+
+  if (processing) return;
+
+  dispatch({ type: ORDER_PROCESS + REQUEST });
+  fetch('/api/order', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(orderData),
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      console.log(result);
+      dispatch({ type: ORDER_PROCESS + SUCCESS, data: result });
+      console.log('orderProcessEnd is called...');
+      history.push('ok' === result ? '/done' : '/error');
+    });
 };
