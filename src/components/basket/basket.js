@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -13,8 +13,12 @@ import Button from '../button';
 import { orderProductsSelector, totalSelector } from '../../redux/selectors';
 import { checkout } from '../../redux/actions';
 import { UserConsumer } from '../../contexts/user-context';
+import { currencyContext } from '../../contexts/currency-context';
+import { rates, signs } from '../currency-switcher/currencies';
 
 function Basket({ title = 'Basket', total, orderProducts, onClick }) {
+  const { currency } = useContext(currencyContext);
+
   const location = useLocation();
 
   const handleClick = (event) => {
@@ -56,7 +60,7 @@ function Basket({ title = 'Basket', total, orderProducts, onClick }) {
           <p>Total</p>
         </div>
         <div className={itemStyles.info}>
-          <p>{`${total} $`}</p>
+          <p>{(+total * +rates[currency]).toFixed(2)} {signs[currency]}</p>
         </div>
       </div>
       <Link to="/checkout">
