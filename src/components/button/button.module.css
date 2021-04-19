@@ -40,6 +40,12 @@
   color: var(--white);
 }
 
+.button.inactive {
+  background-color: var(--grey);
+  border: 1px solid var(--grey);
+  color: var(--white);
+}
+
 .button.secondary {
   background-color: var(--grey-dark);
   border: 1px solid var(--grey-dark);

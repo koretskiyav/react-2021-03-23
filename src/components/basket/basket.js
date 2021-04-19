@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import './basket.css';
@@ -8,10 +9,23 @@ import styles from './basket.module.css';
 import itemStyles from './basket-item/basket-item.module.css';
 import BasketItem from './basket-item';
 import Button from '../button';
-import { orderProductsSelector, totalSelector } from '../../redux/selectors';
+import {
+  orderSelector,
+  orderProductsSelector,
+  totalSelector,
+  orderIsProcessingSelector,
+} from '../../redux/selectors';
 import { UserConsumer } from '../../contexts/user-context';
+import { orderProcessStart } from '../../redux/actions';
 
-function Basket({ title = 'Basket', total, orderProducts }) {
+function Basket({
+  title = 'Basket',
+  total,
+  orderProducts,
+  orderData,
+  orderProcessStart,
+  orderIsProcessing,
+}) {
   if (!total) {
     return (
       <div className={styles.basket}>
@@ -19,6 +33,17 @@ function Basket({ title = 'Basket', total, orderProducts }) {
       </div>
     );
   }
+
+  const processCheckout = () => {
+    console.log('Start checkout!!!');
+    const preparedData = Object.keys(orderData).map((key) => {
+      return { id: key, amount: orderData[key] };
+    });
+    console.log('preparedData', preparedData);
+    orderProcessStart(preparedData);
+  };
+
+  console.log(orderIsProcessing);
 
   return (
     <div className={styles.basket}>
@@ -46,11 +71,26 @@ function Basket({ title = 'Basket', total, orderProducts }) {
           <p>{`${total} $`}</p>
         </div>
       </div>
-      <Link to="/checkout">
-        <Button primary block>
-          checkout
-        </Button>
-      </Link>
+      <Switch>
+        <Route path="/checkout" exact={true}>
+          <Button
+            primary={!orderIsProcessing}
+            block
+            onClick={processCheckout}
+            inactive={orderIsProcessing}
+          >
+            checkout
+          </Button>
+        </Route>
+        <Route>
+          <Link to="/checkout">
+            <Button primary block>
+              checkout
+            </Button>
+          </Link>
+        </Route>
+        <Redirect to="/checkout" />
+      </Switch>
     </div>
   );
 }
@@ -59,7 +99,9 @@ const mapStateToProps = (state) => {
   return {
     total: totalSelector(state),
     orderProducts: orderProductsSelector(state),
+    orderData: orderSelector(state),
+    orderIsProcessing: orderIsProcessingSelector(state),
   };
 };
 
-export default connect(mapStateToProps)(Basket);
+export default connect(mapStateToProps, { orderProcessStart })(Basket);

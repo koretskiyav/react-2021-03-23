@@ -4,7 +4,8 @@ const restaurantsSelector = (state) => state.restaurants.entities;
 const productsSelector = (state) => state.products.entities;
 const reviewsSelector = (state) => state.reviews.entities;
 const usersSelector = (state) => state.users.entities;
-const orderSelector = (state) => state.order;
+export const orderSelector = (state) => state.order;
+const orderProcessSelector = (state) => state.orderProcess;
 
 export const restaurantsLoadingSelector = (state) => state.restaurants.loading;
 export const restaurantsLoadedSelector = (state) => state.restaurants.loaded;
@@ -87,3 +88,8 @@ export const averageRatingSelector = createSelector(
     );
   }
 );
+
+export const orderIsProcessingSelector = (state) =>
+  orderProcessSelector(state).processing;
+export const orderProcessingStatusSelector = (state) =>
+  orderProcessSelector(state).status;

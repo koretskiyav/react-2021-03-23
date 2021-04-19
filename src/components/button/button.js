@@ -18,6 +18,7 @@ const Button = ({
   secondary = false,
   small = false,
   block = false,
+  inactive = false,
   children,
   ...props
 }) => {
@@ -30,6 +31,7 @@ const Button = ({
         [styles.secondary]: secondary,
         [styles.small]: small,
         [styles.block]: block,
+        [styles.inactive]: inactive,
       })}
       {...props}
     >
