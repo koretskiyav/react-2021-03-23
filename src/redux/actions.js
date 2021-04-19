@@ -1,4 +1,4 @@
-import { replace } from 'connected-react-router';
+import { replace, push } from 'connected-react-router';
 import {
   DECREMENT,
   INCREMENT,
@@ -8,6 +8,10 @@ import {
   LOAD_PRODUCTS,
   LOAD_REVIEWS,
   LOAD_USERS,
+  CHECKOUT,
+  REQUEST,
+  SUCCESS,
+  FAILURE,
 } from './constants';
 
 import {
@@ -15,6 +19,7 @@ import {
   usersLoadedSelector,
   reviewsLoadingSelector,
   reviewsLoadedSelector,
+  orderShortSelector,
 } from './selectors';
 
 export const increment = (id) => ({ type: INCREMENT, id });
@@ -30,22 +35,33 @@ export const addReview = (review, restaurantId) => ({
 
 export const loadRestaurants = () => ({
   type: LOAD_RESTAURANTS,
-  CallAPI: '/api/restaurants',
+  CallAPI: {
+    url: '/api/restaurants',
+  },
 });
 
 export const loadProducts = (restaurantId) => ({
   type: LOAD_PRODUCTS,
-  CallAPI: `/api/products?id=${restaurantId}`,
+  CallAPI: {
+    url: `/api/products?id=${restaurantId}`,
+  },
   restaurantId,
 });
 
 const _loadReviews = (restaurantId) => ({
   type: LOAD_REVIEWS,
-  CallAPI: `/api/reviews?id=${restaurantId}`,
+  CallAPI: {
+    url: `/api/reviews?id=${restaurantId}`,
+  },
   restaurantId,
 });
 
-const _loadUsers = () => ({ type: LOAD_USERS, CallAPI: '/api/users' });
+const _loadUsers = () => ({
+  type: LOAD_USERS,
+  CallAPI: {
+    url: '/api/users'
+  }
+});
 
 export const loadReviews = (restaurantId) => async (dispatch, getState) => {
   const state = getState();
@@ -68,3 +84,32 @@ export const loadUsers = () => async (dispatch, getState) => {
 
   dispatch(_loadUsers());
 };
+
+export const checkout = () => async(dispatch, getState) => {
+  const state = getState();
+  const order = orderShortSelector(state);
+
+  dispatch({ type: CHECKOUT + REQUEST });
+
+  try {
+    const res = await fetch('/api/order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order)
+      });
+
+      const data = await res.json();
+
+      if (res.status === 200) {
+        dispatch({ type: CHECKOUT + SUCCESS });
+        dispatch(push('/checkout/success'));
+        return;
+      }
+
+      dispatch({ type: CHECKOUT + FAILURE, error: data });
+      dispatch(push('/checkout/error'));
+  } catch (error) {
+    console.log(error);
+    dispatch(replace('/error'));
+  }
+}

@@ -18,6 +18,7 @@ const Button = ({
   secondary = false,
   small = false,
   block = false,
+  onClick,
   children,
   ...props
 }) => {
@@ -31,6 +32,7 @@ const Button = ({
         [styles.small]: small,
         [styles.block]: block,
       })}
+      onClick={onClick}
       {...props}
     >
       {Icon && <Icon />}
