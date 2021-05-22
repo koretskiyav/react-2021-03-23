@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './product.module.css';
 
-import { increment, decrement } from '../../redux/actions';
+import { increment, decrement } from '../../redux/modules/order';
 
 import Button from '../button';
 import { amountSelector, productSelector } from '../../redux/selectors';

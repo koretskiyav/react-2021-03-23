@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
-import { increment, decrement, remove } from '../../../redux/actions';
+import { increment, decrement, remove } from '../../../redux/modules/order';
 import Button from '../../button';
 import styles from './basket-item.module.css';
 

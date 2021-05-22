@@ -1,12 +1,5 @@
-import {
-  DECREMENT,
-  INCREMENT,
-  REMOVE,
-  MAKE_ORDER,
-  REQUEST,
-  SUCCESS,
-  FAILURE,
-} from '../constants';
+import { MAKE_ORDER, REQUEST, SUCCESS, FAILURE } from '../constants';
+import { increment, decrement, remove } from '../modules/order';
 
 const initialState = {
   loading: false,
@@ -16,16 +9,16 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  const { type, id, error } = action;
+  const { type, payload: id, error } = action;
   const { entities } = state;
 
   switch (type) {
-    case INCREMENT:
+    case increment.type:
       return {
         ...state,
         entities: { ...entities, [id]: (entities[id] || 0) + 1 },
       };
-    case DECREMENT:
+    case decrement.type:
       return {
         ...state,
         entities: {
@@ -33,7 +26,7 @@ export default (state = initialState, action) => {
           [id]: entities[id] > 0 ? (entities[id] || 0) - 1 : 0,
         },
       };
-    case REMOVE:
+    case remove.type:
       return { ...state, entities: { ...entities, [id]: 0 } };
     case MAKE_ORDER + REQUEST:
       return { ...state, loading: true, error: null };
