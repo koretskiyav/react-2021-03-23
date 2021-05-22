@@ -1,6 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { push } from 'connected-react-router';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { MAKE_ORDER, REQUEST, SUCCESS, FAILURE } from '../constants';
+import api from '../../api';
+
+import { orderDataSelector } from '../selectors';
 
 const initialState = {
   loading: false,
@@ -8,6 +11,21 @@ const initialState = {
   error: null,
   entities: {},
 };
+
+export const makeOrder = createAsyncThunk(
+  'makeOrder',
+  async (_, { dispatch, getState }) => {
+    const order = orderDataSelector(getState());
+
+    try {
+      await api.makeOrder(order);
+      dispatch(push('/order-success'));
+    } catch (err) {
+      dispatch(push('/order-error'));
+      throw err;
+    }
+  }
+);
 
 const { reducer, actions } = createSlice({
   name: 'order',
@@ -25,19 +43,19 @@ const { reducer, actions } = createSlice({
     },
   },
   extraReducers: {
-    [MAKE_ORDER + REQUEST]: (state) => {
+    [makeOrder.pending]: (state) => {
       state.loading = true;
       state.error = null;
     },
-    [MAKE_ORDER + SUCCESS]: (state) => {
+    [makeOrder.fulfilled]: (state) => {
       state.loading = false;
       state.loaded = true;
       state.entities = {};
     },
-    [MAKE_ORDER + FAILURE]: (state, action) => {
+    [makeOrder.rejected]: (state, action) => {
       state.loading = false;
       state.loaded = false;
-      state.error = action.error;
+      state.error = action.error.message;
     },
   },
 });

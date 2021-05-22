@@ -14,7 +14,7 @@ import {
   totalSelector,
   orderLoadingSelector,
 } from '../../redux/selectors';
-import { makeOrder } from '../../redux/actions';
+import { makeOrder } from '../../redux/modules/order';
 
 import { UserConsumer } from '../../contexts/user-context';
 import { useMoney } from '../../hooks/use-money';

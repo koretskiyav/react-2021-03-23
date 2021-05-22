@@ -1,11 +1,10 @@
-import { replace, push } from 'connected-react-router';
+import { replace } from 'connected-react-router';
 import {
   ADD_REVIEW,
   LOAD_RESTAURANTS,
   LOAD_PRODUCTS,
   LOAD_REVIEWS,
   LOAD_USERS,
-  MAKE_ORDER,
 } from './constants';
 
 import {
@@ -13,7 +12,6 @@ import {
   usersLoadedSelector,
   reviewsLoadingSelector,
   reviewsLoadedSelector,
-  orderDataSelector,
 } from './selectors';
 
 import api from '../api';
@@ -66,16 +64,4 @@ export const loadUsers = () => async (dispatch, getState) => {
   if (loading || loaded) return;
 
   dispatch(_loadUsers());
-};
-
-export const makeOrder = () => async (dispatch, getState) => {
-  const state = getState();
-  const order = orderDataSelector(state);
-
-  try {
-    await dispatch({ type: MAKE_ORDER, CallAPI: () => api.makeOrder(order) });
-    dispatch(push('/order-success'));
-  } catch {
-    dispatch(push('/order-error'));
-  }
 };
