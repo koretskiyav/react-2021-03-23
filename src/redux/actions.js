@@ -16,6 +16,8 @@ import {
   orderDataSelector,
 } from './selectors';
 
+import api from '../api';
+
 export const addReview = (review, restaurantId) => ({
   type: ADD_REVIEW,
   review,
@@ -25,22 +27,22 @@ export const addReview = (review, restaurantId) => ({
 
 export const loadRestaurants = () => ({
   type: LOAD_RESTAURANTS,
-  CallAPI: '/api/restaurants',
+  CallAPI: () => api.loadRestaurants(),
 });
 
 export const loadProducts = (restaurantId) => ({
   type: LOAD_PRODUCTS,
-  CallAPI: `/api/products?id=${restaurantId}`,
+  CallAPI: () => api.loadProducts(restaurantId),
   restaurantId,
 });
 
 const _loadReviews = (restaurantId) => ({
   type: LOAD_REVIEWS,
-  CallAPI: `/api/reviews?id=${restaurantId}`,
+  CallAPI: () => api.loadReviews(restaurantId),
   restaurantId,
 });
 
-const _loadUsers = () => ({ type: LOAD_USERS, CallAPI: '/api/users' });
+const _loadUsers = () => ({ type: LOAD_USERS, CallAPI: () => api.loadUsers() });
 
 export const loadReviews = (restaurantId) => async (dispatch, getState) => {
   const state = getState();
@@ -68,10 +70,10 @@ export const loadUsers = () => async (dispatch, getState) => {
 
 export const makeOrder = () => async (dispatch, getState) => {
   const state = getState();
-  const postData = orderDataSelector(state);
+  const order = orderDataSelector(state);
 
   try {
-    await dispatch({ type: MAKE_ORDER, CallAPI: '/api/order', postData });
+    await dispatch({ type: MAKE_ORDER, CallAPI: () => api.makeOrder(order) });
     dispatch(push('/order-success'));
   } catch {
     dispatch(push('/order-error'));
