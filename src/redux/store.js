@@ -1,6 +1,4 @@
-import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore } from '@reduxjs/toolkit';
 import { routerMiddleware } from 'connected-react-router';
 
 import logger from './middleware/logger';
@@ -10,12 +8,12 @@ import api from './middleware/api';
 import reducer from './reducer';
 import history from '../history';
 
-const enhancer = applyMiddleware(
-  thunk,
-  routerMiddleware(history),
-  api,
-  generateId,
-  logger
-);
+const middleware = [routerMiddleware(history), api, generateId, logger];
 
-export default createStore(reducer, composeWithDevTools(enhancer));
+export default configureStore({
+  reducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: { ignoredActionPaths: ['CallAPI'] },
+    }).concat(middleware),
+});
