@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { status } from './constants';
 
 const restaurantsSelector = (state) => state.restaurants.entities;
 const productsSelector = (state) => state.products.entities;
@@ -15,14 +16,15 @@ export const productsLoadedSelector = (state, props) =>
   state.products.loaded[props.restaurantId];
 
 export const reviewsLoadingSelector = (state, props) =>
-  state.reviews.loading[props.restaurantId];
+  state.reviews.status[props.restaurantId] === status.pending;
 export const reviewsLoadedSelector = (state, props) =>
-  state.reviews.loaded[props.restaurantId];
+  state.reviews.status[props.restaurantId] === status.fulfilled;
 
 export const usersLoadingSelector = (state) => state.users.loading;
 export const usersLoadedSelector = (state) => state.users.loaded;
 
-export const orderLoadingSelector = (state) => state.order.loading;
+export const orderLoadingSelector = (state) =>
+  state.order.status === status.pending;
 export const orderErrorSelector = (state) => state.order.error;
 
 export const restaurantsListSelector = createSelector(

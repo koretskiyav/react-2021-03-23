@@ -6,6 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 
 import api from '../../api';
+import { status } from '../constants';
 
 import { reviewsLoadedSelector, reviewsLoadingSelector } from '../selectors';
 
@@ -13,8 +14,7 @@ const Reviews = createEntityAdapter();
 
 const initialState = {
   ...Reviews.getInitialState(),
-  loading: {},
-  loaded: {},
+  status: {},
   error: null,
 };
 
@@ -27,7 +27,7 @@ export const addReview = createAction(
 );
 
 export const loadReviews = createAsyncThunk(
-  'loadReviews',
+  'reviews/load',
   (restaurantId) => api.loadReviews(restaurantId),
   {
     condition: (restaurantId, { getState }) =>
@@ -47,16 +47,14 @@ const { reducer } = createSlice({
     },
     [loadReviews.pending]: (state, action) => {
       state.error = null;
-      state.loading[action.meta.arg] = true;
+      state.status[action.meta.arg] = status.pending;
     },
     [loadReviews.fulfilled]: (state, action) => {
-      state.loading[action.meta.arg] = false;
-      state.loaded[action.meta.arg] = true;
+      state.status[action.meta.arg] = status.fulfilled;
       Reviews.addMany(state, action);
     },
     [loadReviews.rejected]: (state, action) => {
-      state.loading[action.meta.arg] = false;
-      state.loaded[action.meta.arg] = false;
+      state.status[action.meta.arg] = status.rejected;
       state.error = action.error.message;
     },
   },

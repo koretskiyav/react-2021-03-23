@@ -4,21 +4,21 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../api';
 
 import { orderDataSelector } from '../selectors';
+import { status } from '../constants';
 
 const initialState = {
-  loading: false,
-  loaded: false,
+  status: status.idle,
   error: null,
   entities: {},
 };
 
-export const makeOrder = createAsyncThunk(
-  'makeOrder',
+export const addOrder = createAsyncThunk(
+  'order/add',
   async (_, { dispatch, getState }) => {
     const order = orderDataSelector(getState());
 
     try {
-      await api.makeOrder(order);
+      await api.addOrder(order);
       dispatch(push('/order-success'));
     } catch (err) {
       dispatch(push('/order-error'));
@@ -43,18 +43,16 @@ const { reducer, actions } = createSlice({
     },
   },
   extraReducers: {
-    [makeOrder.pending]: (state) => {
-      state.loading = true;
+    [addOrder.pending]: (state) => {
+      state.status = status.pending;
       state.error = null;
     },
-    [makeOrder.fulfilled]: (state) => {
-      state.loading = false;
-      state.loaded = true;
+    [addOrder.fulfilled]: (state) => {
+      state.status = status.fulfilled;
       state.entities = {};
     },
-    [makeOrder.rejected]: (state, action) => {
-      state.loading = false;
-      state.loaded = false;
+    [addOrder.rejected]: (state, action) => {
+      state.status = status.rejected;
       state.error = action.error.message;
     },
   },

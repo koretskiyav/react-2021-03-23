@@ -14,18 +14,12 @@ import {
   totalSelector,
   orderLoadingSelector,
 } from '../../redux/selectors';
-import { makeOrder } from '../../redux/modules/order';
+import { addOrder } from '../../redux/modules/order';
 
 import { UserConsumer } from '../../contexts/user-context';
 import { useMoney } from '../../hooks/use-money';
 
-function Basket({
-  title = 'Basket',
-  total,
-  orderProducts,
-  makeOrder,
-  loading,
-}) {
+function Basket({ title = 'Basket', total, orderProducts, addOrder, loading }) {
   const m = useMoney();
 
   if (!total) {
@@ -69,7 +63,7 @@ function Basket({
       </div>
       <Switch>
         <Route path="/checkout">
-          <Button primary block onClick={makeOrder}>
+          <Button primary block onClick={addOrder}>
             make order
           </Button>
         </Route>
@@ -93,4 +87,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { makeOrder })(Basket);
+export default connect(mapStateToProps, { addOrder })(Basket);

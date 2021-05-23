@@ -20,5 +20,5 @@ export default {
   loadProducts: (id) => get(`/api/products?id=${id}`),
   loadReviews: (id) => get(`/api/reviews?id=${id}`),
   loadUsers: () => get('/api/users'),
-  makeOrder: (data) => post('/api/order', data),
+  addOrder: (data) => post('/api/order', data),
 };
