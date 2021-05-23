@@ -1,11 +1,6 @@
 import produce from 'immer';
-import {
-  ADD_REVIEW,
-  LOAD_RESTAURANTS,
-  REQUEST,
-  SUCCESS,
-  FAILURE,
-} from '../constants';
+import { LOAD_RESTAURANTS, REQUEST, SUCCESS, FAILURE } from '../constants';
+import { addReview } from '../modules/reviews';
 import { arrToMap } from '../utils';
 
 const initialState = {
@@ -16,7 +11,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  const { type, restaurantId, reviewId, data, error } = action;
+  const { type, data, error } = action;
 
   switch (type) {
     case LOAD_RESTAURANTS + REQUEST:
@@ -39,9 +34,11 @@ export default (state = initialState, action) => {
         loaded: false,
         error,
       };
-    case ADD_REVIEW:
+    case addReview.type:
       return produce(state, (draft) => {
-        draft.entities[restaurantId].reviews.push(reviewId);
+        draft.entities[action.payload.restaurantId].reviews.push(
+          action.meta.reviewId
+        );
       });
     default:
       return state;

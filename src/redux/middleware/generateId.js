@@ -1,11 +1,11 @@
 import { v4 as uuid } from 'uuid';
 
 export default (store) => (next) => (action) => {
-  if (!action.generateId) return next(action);
+  if (!action.meta?.generateId) return next(action);
 
-  const { generateId, ...rest } = action;
+  const { meta, ...rest } = action;
   next({
     ...rest,
-    ...generateId.reduce((acc, key) => ({ ...acc, [key]: uuid() }), {}),
+    meta: meta.generateId.reduce((acc, key) => ({ ...acc, [key]: uuid() }), {}),
   });
 };

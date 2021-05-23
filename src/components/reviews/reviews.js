@@ -7,7 +7,8 @@ import ReviewForm from './review-form';
 import styles from './reviews.module.css';
 import animationStyles from './reviews-animation.module.css';
 
-import { loadReviews, loadUsers } from '../../redux/actions';
+import { loadUsers } from '../../redux/actions';
+import { loadReviews } from '../../redux/modules/reviews';
 import {
   reviewsLoadedSelector,
   usersLoadedSelector,
